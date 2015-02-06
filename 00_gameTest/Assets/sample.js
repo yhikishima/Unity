@@ -12,7 +12,7 @@ function Update() {
 
 }
 
- function OnTriggerEnter() {
+function OnTriggerEnter() {
 	Debug.Log("hit");
 }
 
@@ -27,13 +27,17 @@ function OnControllerColliderHit( hit : ControllerColliderHit ) {
 }
 
 
+
 // create gui button
 function OnGUI() {
 	if ( GUI.Button(Rect(350, 330, 100, 50), "Button") ) {
 		Debug.Log("Unity is wonderful.");
+		
+
 	
 	}
 }
+
 
 
 
