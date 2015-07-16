@@ -75,6 +75,7 @@ public class Bear : MonoBehaviour {
 		if (avatar != null) {
 			if (hitFlag == false && collision.collider.tag == "Bullet") {
 				hitFlag = true;
+				SoundManager.Instance.PlayExplosionAudio();
 				GameObject exp = (GameObject)Instantiate(detonator.gameObject, transform.position, Quaternion.identity);
 				
 				var currentState = avatar.GetCurrentAnimatorStateInfo(0);
