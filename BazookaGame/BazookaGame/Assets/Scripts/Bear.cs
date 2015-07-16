@@ -13,6 +13,7 @@ using System.Collections;
 public class Bear : MonoBehaviour {
 	
 	public float AvatarRange = 25;
+	public GameObject detonator;
 
 	protected Animator avatar;
 	
@@ -69,14 +70,20 @@ public class Bear : MonoBehaviour {
         }		
 	}
 
-    void OnCollisionEnter(Collision collision)
-    {
-		if (avatar != null)
-        {
-			var currentState = avatar.GetCurrentAnimatorStateInfo(0);
-			var nextState = avatar.GetNextAnimatorStateInfo(0);
-			if (!currentState.IsName("Base Layer.Dying") && !nextState.IsName("Base Layer.Dying"))
-				avatar.SetBool("Dying", true);
-        }        
-    }
+	bool hitFlag = false;
+	void OnCollisionEnter(Collision collision) {
+		if (avatar != null) {
+			if (hitFlag == false && collision.collider.tag == "Bullet") {
+				hitFlag = true;
+				GameObject exp = (GameObject)Instantiate(detonator.gameObject, transform.position, Quaternion.identity);
+				
+				var currentState = avatar.GetCurrentAnimatorStateInfo(0);
+				var nextState = avatar.GetNextAnimatorStateInfo(0);
+				if (!currentState.IsName("Base Layer.Dying") && !nextState.IsName("Base Layer.Dying")) {
+					avatar.SetBool("Dying", true);
+					Destroy(this.gameObject, 3.0f);
+				}
+			}
+		}
+	}
 }
