@@ -27,6 +27,11 @@ public class Enemy : Token {
 	}
 
 	public void OnMouseDown() {
+
+		for (int i = 0; i < 32; i++) {
+			Particle.Add (X, Y);	
+		}
+
 		DestroyObj ();
 	}
 }
