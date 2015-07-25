@@ -13,6 +13,11 @@ public class GameMgr : MonoBehaviour {
 			float py = Screen.height /2 - h /2;
 
 			Util.GUILabel(px, py, w, h, "Game Clear!");
+
+			py += 60;
+			if (GUI.Button(new Rect(px, py, w, h), "Back to Title")){
+				Application.LoadLevel("Title");
+			}
 		}
 	}
 
