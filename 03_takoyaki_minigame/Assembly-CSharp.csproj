@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\GameMgr.cs" />
      <Compile Include="Assets\Scripts\Particle.cs" />
      <Compile Include="Assets\Scripts\Token.cs" />
      <Compile Include="Assets\Scripts\Util.cs" />
