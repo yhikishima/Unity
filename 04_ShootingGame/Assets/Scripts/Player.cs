@@ -3,13 +3,17 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	public float speed = 5;
-	public GameObject bullet;
+	Spaceship spaceship;
+	
 
 	IEnumerator Start() {
+		spaceship = GetComponent<Spaceship> ();
+
 		while(true){
-			Instantiate (bullet, transform.position, transform.rotation);
-			yield return new WaitForSeconds(0.05f);
+			spaceship.Shot (transform);
+			yield return new WaitForSeconds (spaceship.shotDelay);
+//			Instantiate (bullet, transform.position, transform.rotation);
+//			yield return new WaitForSeconds(0.05f);
 		}
 	}
 	
@@ -20,6 +24,8 @@ public class Player : MonoBehaviour {
 		
 		Vector2 direction = new Vector2(x, y).normalized;
 		
-		rigidbody2D.velocity = direction * speed;	
+//		rigidbody2D.velocity = direction * speed;	
+
+		spaceship.Move (direction);
 	}
 }
