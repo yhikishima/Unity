@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour {
 			for(int i = 0; i<transform.childCount; i++) {
 				Transform shotPosition = transform.GetChild(i);
 
-				spaceship.Shot (shotPosition);
+				spaceship.Shot(shotPosition);
 			}	
 
 			yield return new WaitForSeconds(spaceship.shotDelay);
