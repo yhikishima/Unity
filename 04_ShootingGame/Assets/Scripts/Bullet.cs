@@ -10,9 +10,5 @@ public class Bullet : MonoBehaviour {
 		rigidbody2D.velocity = transform.up.normalized * speed;
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }
