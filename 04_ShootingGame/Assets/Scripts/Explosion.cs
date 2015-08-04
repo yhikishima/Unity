@@ -3,10 +3,7 @@ using System.Collections;
 
 public class Explosion : MonoBehaviour {
 
-	// Use this for initialization
-	void OnAnimationFinish () {
+	void OnAnimationFinish() {
 		Destroy (gameObject);
-	
 	}
-	
 }
