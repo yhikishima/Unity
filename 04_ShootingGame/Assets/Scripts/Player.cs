@@ -4,7 +4,6 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
 	Spaceship spaceship;
-	
 
 	IEnumerator Start() {
 		spaceship = GetComponent<Spaceship> ();
@@ -12,8 +11,6 @@ public class Player : MonoBehaviour {
 		while(true){
 			spaceship.Shot (transform);
 			yield return new WaitForSeconds (spaceship.shotDelay);
-//			Instantiate (bullet, transform.position, transform.rotation);
-//			yield return new WaitForSeconds(0.05f);
 		}
 	}
 	
@@ -30,14 +27,18 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D c) {
-		// 弾の削除
-		Destroy(c.gameObject);
-		
-		// 爆発する
-		spaceship.Explosion();
-		
-		// プレイヤーを削除
-		Destroy (gameObject);
+
+		string layerName = LayerMask.LayerToName (c.gameObject.layer);
+
+		if (layerName == "Bullet(Enemy)"){
+			Destroy (c.gameObject);
+		}
+
+		if (layerName == "Bullet(Enemy)" || layerName == "Enemy") {
+			spaceship.Explosion();
+			Destroy(gameObject);
+		}
+
 	}
 
 
