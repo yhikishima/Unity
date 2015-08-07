@@ -29,11 +29,6 @@ public class Player : MonoBehaviour {
 		spaceship.Move (direction);
 	}
 
-//	void OnTriggerEnter2D (Collider2D c){
-//		Destroy (c.gameObject);
-//		spaceship.Explosion ();
-//		Destroy (gameObject);
-//	}
 	void OnTriggerEnter2D (Collider2D c) {
 		// 弾の削除
 		Destroy(c.gameObject);

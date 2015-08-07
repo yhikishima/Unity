@@ -89,7 +89,7 @@ MonoBehaviour:
   shotDelay: .0500000007
   bullet: {fileID: 148724, guid: c4e68e91e74be44388a5a10f02cc55d0, type: 2}
   canShot: 1
-  explosion: {fileID: 193186, guid: 8f30d47cd1e284e4f89be8dee0e34acd, type: 2}
+  explosion: {fileID: 112202, guid: 8f30d47cd1e284e4f89be8dee0e34acd, type: 2}
 --- !u!114 &11407782
 MonoBehaviour:
   m_ObjectHideFlags: 1
