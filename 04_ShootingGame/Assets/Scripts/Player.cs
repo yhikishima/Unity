@@ -20,14 +20,23 @@ public class Player : MonoBehaviour {
 		float y = Input.GetAxisRaw("Vertical");
 		
 		Vector2 direction = new Vector2(x, y).normalized;
-		
-//		rigidbody2D.velocity = direction * speed;	
-
 		spaceship.Move (direction);
 	}
 
+	void OnTriggerEnter2D (Collider2D c)
+	{
+		// 弾の削除
+		Destroy(c.gameObject);
+		
+		// 爆発する
+		spaceship.Explosion();
+		
+		// プレイヤーを削除
+		Destroy (gameObject);
+	}
+	
 	void OnTriggerEnter2D (Collider2D c) {
-
+		
 		string layerName = LayerMask.LayerToName (c.gameObject.layer);
 
 		if (layerName == "Bullet(Enemy)"){
