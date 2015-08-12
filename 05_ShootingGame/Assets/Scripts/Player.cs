@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
 			
 			// 弾をプレイヤーと同じ位置/角度で作成
 			spaceship.Shot (transform);
+
+			audio.Play ();
 			
 			// shotDelay秒待つ
 			yield return new WaitForSeconds (spaceship.shotDelay);
