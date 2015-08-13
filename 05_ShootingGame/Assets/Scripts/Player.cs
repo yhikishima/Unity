@@ -36,6 +36,12 @@ public class Player : MonoBehaviour
 		
 		// 移動
 		spaceship.Move (direction);
+
+		Clamp ();
+	}
+
+	void Clamp() {
+
 	}
 	
 	// ぶつかった瞬間に呼び出される
