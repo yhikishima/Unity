@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
+
+	public int hp = 1;
+
 	// Spaceshipコンポーネント
 	Spaceship spaceship;
 	
@@ -46,14 +49,28 @@ public class Enemy : MonoBehaviour
 		
 		// レイヤー名がBullet (Player)以外の時は何も行わない
 		if( layerName != "Bullet(Player)") return;
-		
+
+		Transform playerBulletTransrom = c.transform.parent;
+
+		Bullet bullet = playerBulletTransrom.GetComponent<Bullet> ();
+	
+		hp = hp - bullet.power;
+
 		// 弾の削除
 		Destroy(c.gameObject);
+
+		if (hp <= 0) {
 		
-		// 爆発
-		spaceship.Explosion();
-		
-		// エネミーの削除
-		Destroy(gameObject);
+			// 爆発
+			spaceship.Explosion();
+			
+			// エネミーの削除
+			Destroy(gameObject);
+
+
+		} else {
+			spaceship.GetAnimator().SetTrigger("Damage");
+		}
+
 	}
 }
