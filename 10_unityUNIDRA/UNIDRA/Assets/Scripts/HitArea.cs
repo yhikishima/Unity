@@ -5,6 +5,6 @@ public class HitArea : MonoBehaviour {
 	
 	void Damage(AttackArea.AttackInfo attackInfo)
 	{
-		transform.root.SendMessage ("Damage",attackInfo);
+		transform.root.SendMessage("Damage", attackInfo);
 	}
 }
