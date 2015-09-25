@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\CharaAnimation.cs" />
      <Compile Include="Assets\Scripts\CharacterMove.cs" />
      <Compile Include="Assets\Scripts\CharacterStatus.cs" />
+     <Compile Include="Assets\Scripts\DropItem.cs" />
      <Compile Include="Assets\Scripts\EnemyCtrl.cs" />
      <Compile Include="Assets\Scripts\FollowCamera.cs" />
      <Compile Include="Assets\Scripts\HitArea.cs" />
