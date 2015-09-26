@@ -51,11 +51,14 @@
      <Compile Include="Assets\Scripts\CharaAnimation.cs" />
      <Compile Include="Assets\Scripts\CharacterMove.cs" />
      <Compile Include="Assets\Scripts\CharacterStatus.cs" />
+     <Compile Include="Assets\Scripts\CharacterStatusGui.cs" />
      <Compile Include="Assets\Scripts\DropItem.cs" />
      <Compile Include="Assets\Scripts\EnemyCtrl.cs" />
      <Compile Include="Assets\Scripts\EnemyGeneratorCtrl.cs" />
      <Compile Include="Assets\Scripts\FollowCamera.cs" />
+     <Compile Include="Assets\Scripts\GameResultGui.cs" />
      <Compile Include="Assets\Scripts\GameRuleCtrl.cs" />
+     <Compile Include="Assets\Scripts\GameTimerGui.cs" />
      <Compile Include="Assets\Scripts\HitArea.cs" />
      <Compile Include="Assets\Scripts\InputManager.cs" />
      <Compile Include="Assets\Scripts\PlayerCtrl.cs" />
