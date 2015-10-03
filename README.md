@@ -15,3 +15,8 @@ http://yhikishima.github.io/Unity/07_MiniGame/MiniGame/MiniGame/MiniGame.html
 3Dアクションゲーム
 
 http://yhikishima.github.io/Unity/10_unityUNIDRA/UNIDRA/UNIDRA/UNIDRA.html
+
+## 11_unity2DGame
+mini 2D Game
+
+http://yhikishima.github.io/Unity/11_unity2DGame/Unity2DGame/Unity2DGame/Unity2DGame.html
