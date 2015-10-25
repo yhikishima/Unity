@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
 
   void Awake () {
     boardScript = GetComponent<BoardManager>();
-    initGame();
+    InitGame();
   }
 
 	// Use this for initialization
