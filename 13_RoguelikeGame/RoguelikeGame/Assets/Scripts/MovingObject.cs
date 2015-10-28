@@ -17,13 +17,22 @@ public abstract class MovingObject : MonoBehaviour {
     inverseMoveTime = 1f / moveTime;
   }
 
-	// Use this for initialization
-	void Start () {
+  protected bool Movee (int xDir, int yOir, out RaycastHit2D hit) {
 
-	}
+  }
 
-	// Update is called once per frame
-	void Update () {
+  protected IEnumerator SmoothMovement (Vector3 end) {
+    float sqrRemaining = (transform.position - end).sqrMagnitude;
 
-	}
+    while (sqrRemaining > float.Epsilon) {
+      Vector3 newPosition = Vector3.MoveTowards(rb2D.position, end, inverseMoveTime * Time.deltaTime);
+      rb2D.MovePosition(newPosition);
+      sqrRemainingDistanse = (transform.position - end).sqlMagnitude;
+      yield return null;
+    }
+  }
+
+  protected abstract void OnCantMove <T> (T component)
+    where T : Component;
+
 }
