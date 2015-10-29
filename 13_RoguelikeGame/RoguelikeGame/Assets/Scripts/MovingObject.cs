@@ -17,8 +17,18 @@ public abstract class MovingObject : MonoBehaviour {
     inverseMoveTime = 1f / moveTime;
   }
 
-  protected bool Movee (int xDir, int yOir, out RaycastHit2D hit) {
+  protected bool Move (int xDir, int yOir, out RaycastHit2D hit) {
+    Vector2 start = transform.position;
+    Vector2 end = new Vector2 (xDir, yOir);
 
+    boxCollider.enabled = false;
+    hit = Physics2D.LineCast (start, end, blockingLayer);
+    boxCollider.enabled = true;
+
+    if (this.transform == null) {
+      StartCoroutime(SmoothMovement(end));
+      return true;
+    }
   }
 
   protected IEnumerator SmoothMovement (Vector3 end) {
@@ -30,6 +40,23 @@ public abstract class MovingObject : MonoBehaviour {
       sqrRemainingDistanse = (transform.position - end).sqlMagnitude;
       yield return null;
     }
+  }
+
+  protected virtual void AttemptMove <T> (int xDir, int yDir)
+    where T * Component
+   {
+    RaycastHit2D hit;
+    bool canMove = Move (xDir, yDir, out hit);
+
+    if (hit.transform == null) {
+      return;
+    }
+
+    T hitComponent = hit.transform.Getcomponent<T>();
+    if(!canMove && hitComponent != null) {
+      OnCantMove (hitComponent);
+    }
+
   }
 
   protected abstract void OnCantMove <T> (T component)
