@@ -13,7 +13,7 @@ public class Player : MovingObject {
   protected override void Start () {
     animator = GetComponent<Animator>();
 
-    food = GameManager.instance.playerFoodPoint;
+    food = GameManager.instance.playerFoodPoints;
 
     base.Start();
   }
@@ -32,7 +32,7 @@ public class Player : MovingObject {
     int vertical = 0;
 
     if (horizontal != 0) {
-      vertivcal = 0;
+      vertical = 0;
     }
 
     if (horizontal !=0 || vertical !=0) {
@@ -51,10 +51,42 @@ public class Player : MovingObject {
     GameManager.instance.playersTurn = false;
   }
 
+  private void OnTriggerEnter2D (Collider2D other) {
+    if (other.tag == "Exit") {
+      Invoke ("Restart", restartLevelDelay);
+      enabled = false;
+
+    } else if (other.tag == "Food") {
+      food += pointsPerFood;
+      other.gameObject.SetActive(false);
+
+    } else if (other.tag == "Soda") {
+      food += pointsPerSoda;
+      other.gameObject.SetActive(false);
+    }
+  }
+
+  protected override void OnCantMove <T> (T component) {
+    Wall hitWall = component as Wall;
+
+    hitWall.DamageWall (wallDamage);
+    animator.SetTrigger ("playerChop");
+  }
+
+  private void Restart() {
+    Application.LoadLevel(Application.loadedLevel);
+  }
+
+  public void LoseFood (int loss) {
+    animator.SetTrigger ("playerHit");
+    food -= loss;
+    CheckIfGameOver();
+  }
+
 
   private void CheckIfGameOver() {
     if (food <= 0) {
-      GameManager.instance.Gameover();
+      GameManager.instance.GameOver();
     }
   }
 }
