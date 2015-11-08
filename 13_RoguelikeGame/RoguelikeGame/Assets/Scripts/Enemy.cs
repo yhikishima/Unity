@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MovingObject {
 
   public int playerDamage;
 
@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour {
   private bool skipMove;
 
   protected override void Start () {
-    Gamemanager.instance.AddEnemyToList(this);
     animator = GetComponent<Animator>();
     target = GameObject.FindGameObjectWithTag ("Player").transform;
     base.Start();
@@ -40,10 +39,10 @@ public class Enemy : MonoBehaviour {
     AttemptMove <Player> (xDir, yDir);
   }
 
-  protected override void OnCanMove <T> (T component) {
+  protected override void OnCantMove <T> (T component) {
     Player hitPlayer = component as Player;
 
-    hitPlayer.LoseFood(PlayerDamage);
+    hitPlayer.LoseFood(playerDamage);
   }
 
 }
