@@ -67,9 +67,11 @@ public class GameManager : MonoBehaviour
 	{
 		doingSetup = true;
 
-		levelImage = GameObject.find("levelImage");
-		levelText = GameObject.find ("levelText").GameComponent<Text>;
+		levelImage = GameObject.Find("LevelImage");
+		levelText = GameObject.Find ("LevelText").GetComponent<Text>();
 		levelText.text = "Day" + level;
+		levelImage.SetActive (true);
+		Invoke ("HideLevelImage", levelStartDelay);
 
 
 
@@ -80,13 +82,18 @@ public class GameManager : MonoBehaviour
 		boardScript.SetupScene(level);
 		
 	}
+
+	void HideLevelImage() {
+		levelImage.SetActive (false);
+		doingSetup = false;
+	}
 	
 	
 	//Update is called every frame.
 	void Update()
 	{
 		//Check that playersTurn or enemiesMoving or doingSetup are not currently true.
-		if(playersTurn || enemiesMoving)
+		if(playersTurn || enemiesMoving || doingSetup)
 			
 			//If any of these are true, return and do not start MoveEnemies.
 			return;
@@ -106,7 +113,8 @@ public class GameManager : MonoBehaviour
 	//GameOver is called when the player reaches 0 food points
 	public void GameOver()
 	{
-		
+		levelText.text = "After" + level + "days, you starved";
+		levelImage.SetActive (true);
 		//Disable this GameManager.
 		enabled = false;
 	}
