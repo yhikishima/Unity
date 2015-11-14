@@ -28,20 +28,24 @@ public class Player : MovingObject {
 
 	// Update is called once per frame
 	void Update () {
-    if (!GameManager.instance.playersTurn) {
-      return;
-    }
+	    if (!GameManager.instance.playersTurn) {
+	      return;
+	    }
 
-    int horizontal = 0;
-    int vertical = 0;
+	    int horizontal = 0;
+	    int vertical = 0;
 
-    if (horizontal != 0) {
-      vertical = 0;
-    }
+		horizontal = (int) (Input.GetAxisRaw ("Horizontal"));
+		vertical = (int) (Input.GetAxisRaw ("Vertical"));
 
-    if (horizontal !=0 || vertical !=0) {
-      AttemptMove<Wall> (horizontal, vertical);
-    }
+
+	    if (horizontal != 0) {
+	      vertical = 0;
+	    }
+
+	    if (horizontal !=0 || vertical !=0) {
+	      AttemptMove<Wall> (horizontal, vertical);
+	    }
 
 	}
 
@@ -50,7 +54,13 @@ public class Player : MovingObject {
 		foodText.text = "Food:" + food; 	
 
     base.AttemptMove <T> (xDir, yDir);
-    RaycastHit2D hit;
+		RaycastHit2D hit;
+
+		if (Move (xDir, yDir, out hit)) 
+		{
+			//Call RandomizeSfx of SoundManager to play the move sound, passing in two audio clips to choose from.
+		}
+
     CheckIfGameOver();
 
     GameManager.instance.playersTurn = false;
