@@ -7,7 +7,7 @@ public class Player : MovingObject {
   public int pointsPerFood = 10;
   public int pointsPerSoda = 20;
   public float restartLevelDelay = 1f;
-	public Text foodtext;
+	public Text foodText;
 
   private Animator animator;
   private int food;
@@ -63,11 +63,12 @@ public class Player : MovingObject {
 
     } else if (other.tag == "Food") {
       food += pointsPerFood;
-			foodtext.text = "+" + pointsPerFood + "Food:";
+			foodText.text = "+" + pointsPerFood + "Food:" + food;
       other.gameObject.SetActive(false);
 
     } else if (other.tag == "Soda") {
       food += pointsPerSoda;
+			foodText.text = "+" + pointsPerFood + "Food:" + food;
       other.gameObject.SetActive(false);
     }
   }
@@ -86,6 +87,7 @@ public class Player : MovingObject {
   public void LoseFood (int loss) {
     animator.SetTrigger ("playerHit");
     food -= loss;
+		foodText.text = "-" + loss + "Food: " + food;
     CheckIfGameOver();
   }
 
