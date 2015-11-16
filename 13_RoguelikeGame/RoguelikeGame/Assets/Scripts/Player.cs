@@ -60,14 +60,14 @@ public class Player : MovingObject {
 
 
     	food--;
-		foodText.text = "Food:" + food; 	
+		foodText.text = "Food:" + food;
 
     	base.AttemptMove <T> (xDir, yDir);
 		RaycastHit2D hit;
 
 		if (Move (xDir, yDir, out hit)) 
 		{
-			SoundManager.instance.RandomizeSfx (moveSound01, moveSound02);
+			SoundManager.instance.RandomizeSfx(moveSound01,moveSound02);
 	
 		}
 
@@ -84,13 +84,13 @@ public class Player : MovingObject {
     } else if (other.tag == "Food") {
       food += pointsPerFood;
 			foodText.text = "+" + pointsPerFood + "Food:" + food;
-			SoundManager.instance.RandomizeSfx(eatSound1, eatSound2);
+			SoundManager.instance.RandomizeSfx(eatSound1,eatSound2);
       other.gameObject.SetActive(false);
 
     } else if (other.tag == "Soda") {
       food += pointsPerSoda;
 			foodText.text = "+" + pointsPerFood + "Food:" + food;
-			SoundManager.instance.RandomizeSfx(drinkSound1, drinkSound2);
+			SoundManager.instance.RandomizeSfx(drinkSound1,drinkSound2);
 			other.gameObject.SetActive(false);
     }
   }
