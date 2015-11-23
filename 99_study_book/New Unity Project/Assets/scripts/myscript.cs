@@ -5,11 +5,25 @@ using System.Collections;
 public class myscript : MonoBehaviour {
 	public Text text;
 	public Text text2;
+	public Text text3;
 
+	struct Hello {
+		public string name;
+		public string maker;
+		public int price;
+		public Hello(string n, string m, int p) {
+			name = n;
+			maker = m;
+			price = p;
+		}
+	}
+
+	
 	// Use this for initialization
 	void Start () {
 		SetText ();
 		SetText2 ();
+		SetText3 ();
 
 	}
 
@@ -48,7 +62,14 @@ public class myscript : MonoBehaviour {
 		text2.text = "total:" + total + ", " + "average:" + ave;
 
 	}
-	
+
+	private void SetText3 () {
+		Hello h = new Hello ("doyrayaki", "wagashi", 125);
+		string s = h.name + "," + h.maker + h.price;
+		text3.text = s;
+	}
+
+
 	// Update is called once per frame
 	void Update () {
 	
