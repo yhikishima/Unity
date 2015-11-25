@@ -23,7 +23,8 @@ public class myscript : MonoBehaviour {
 	void Start () {
 		SetText ();
 		SetText2 ();
-		SetText3 ();
+		string msg = "Hello!"; 
+		SetText3 (msg);
 
 	}
 
@@ -63,8 +64,8 @@ public class myscript : MonoBehaviour {
 
 	}
 
-	private void SetText3 () {
-		Hello h = new Hello ("doyrayaki", "wagashi", 125);
+	private void SetText3 (string m) {
+		Hello h = new Hello (m, "wagashi", 125);
 		string s = h.name + "," + h.maker + h.price;
 		text3.text = s;
 	}
