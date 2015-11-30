@@ -20,6 +20,7 @@ public class myscript : MonoBehaviour {
 
 	int counter = 0;
 	float plus = 0.1f;
+	float zvalue = 0f;
 
 	
 	// Use this for initialization
@@ -76,12 +77,20 @@ public class myscript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Vector3 p = new Vector3 (0, 0, plus);
-		transform.Translate (p);
-		counter++;
-		if (counter == 100) {
-			counter = 0;
-			plus *= -1;
+//		Vector3 p = new Vector3 (0, 0, plus);
+//		transform.Translate (p);
+//		counter++;
+//		if (counter == 100) {
+//			counter = 0;
+//			plus *= -1;
+//		}
+
+		zvalue += 0.1f;
+		Vector3 p = new Vector3 (0, 0, zvalue);
+		transform.position = p;
+		if (zvalue > 10) {
+			zvalue = 0;
 		}
+
 	}
 }
