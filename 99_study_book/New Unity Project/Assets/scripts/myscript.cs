@@ -22,6 +22,9 @@ public class myscript : MonoBehaviour {
 	float plus = 0.1f;
 	float zvalue = 0f;
 
+	float dx = 0.01f;
+	float dy = -0.01f;
+
 	
 	// Use this for initialization
 	void Start () {
@@ -77,20 +80,37 @@ public class myscript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-//		Vector3 p = new Vector3 (0, 0, plus);
-//		transform.Translate (p);
-//		counter++;
-//		if (counter == 100) {
-//			counter = 0;
-//			plus *= -1;
-//		}
+		ZoomIn ();
+		Transform ();
+		ChangeWH ();
 
+
+	}
+
+	private void ZoomIn () {
 		zvalue += 0.1f;
 		Vector3 p = new Vector3 (0, 0, zvalue);
 		transform.position = p;
 		if (zvalue > 10) {
 			zvalue = 0;
-		}
+		}		
+	}
 
+	private void Transform () {
+		var v = new Vector3 (0.1f, 0.1f, 0.1f);
+		transform.Rotate (v);
+	}
+
+	private void ChangeWH () {
+		Vector3 s = transform.localScale;
+		if (s.x > 3 || s.x < 0.1) {
+			dx *= -1;
+		}
+		if (s.y > 3 || s.y < 0.1) {
+			dy *= -1;
+		}
+		s.x += dx;
+		s.y += dy;
+		transform.localScale = s;
 	}
 }
