@@ -7,6 +7,8 @@ public class myscript : MonoBehaviour {
 	public Text text2;
 	public Text text3;
 
+
+
 	struct Hello {
 		public string name;
 		public string maker;
@@ -25,6 +27,8 @@ public class myscript : MonoBehaviour {
 	float dx = 0.01f;
 	float dy = -0.01f;
 
+
+
 	
 	// Use this for initialization
 	void Start () {
@@ -32,7 +36,7 @@ public class myscript : MonoBehaviour {
 		SetText2 ();
 		string msg = "Hello!"; 
 		SetText3 (msg);
-
+	
 	}
 
 	private void SetText () {
@@ -83,8 +87,6 @@ public class myscript : MonoBehaviour {
 		ZoomIn ();
 		Transform ();
 		ChangeWH ();
-
-
 	}
 
 	private void ZoomIn () {
@@ -113,4 +115,5 @@ public class myscript : MonoBehaviour {
 		s.y += dy;
 		transform.localScale = s;
 	}
+	
 }
