@@ -50,15 +50,30 @@ public class KeyScript : MonoBehaviour {
 	private void MouseButtonDown() {
 		if (flg) {
 			if (counter <= 0) {
+				hit.transform.localScale = stdSize;
+				flg = false;
 
+			} else {
+				counter--;
 			}
 		}
 
 		if (Input.GetMouseButtonDown (0)) {
 			Vector3 pos = Input.mousePosition;
 			pos.z = 3.0f;
-			Vector3 newpos = Camera.main.ScreenToWorldPoint(pos);
-			transform.position = newpos;
+			Ray ray = Camera.main.ScreenPointToRay(pos);
+
+			if (!flg) {
+				if (Physics.Raycast(ray, out hit, 100)) {
+					hit.transform.localScale = smlSize;
+					counter = 100;
+					flg = true;
+				} else {
+					Vector3 newpos = Camera.main.ScreenToWorldPoint(pos);
+					transform.position = newpos;
+				}
+			}
+		
 		}
 	}
 }
