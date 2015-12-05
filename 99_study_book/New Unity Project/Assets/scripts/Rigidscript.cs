@@ -22,5 +22,11 @@ public class Rigidscript : MonoBehaviour {
 		if (Input.GetKey(KeyCode.LeftArrow)) {
 			transform.GetComponent<Rigidbody>().AddForce(-1,0,0);
 		}
+
+		Vector3 pos = transform.position;
+		pos.y += 2.5f;
+		pos.z -= 3f;
+		GameObject camera = GameObject.Find ("Main Camera");
+		camera.transform.position = pos;
 	}
 }
