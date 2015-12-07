@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Rigidscript : MonoBehaviour {
+	float dgr = 0;
+	int power = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -10,6 +12,15 @@ public class Rigidscript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Vector3 pos = transform.position;
+		if (Input.GetKeyDown(KeyCode.space)) {
+			power = 0;
+		}
+
+		if (Input.GetKey(KeyCode.space)) {
+			power++;
+		}
+
 		if (Input.GetKey(KeyCode.UpArrow)) {
 			transform.GetComponent<Rigidbody>().AddForce(0,0,1);
 		}
