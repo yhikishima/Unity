@@ -13,31 +13,43 @@ public class Rigidscript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 pos = transform.position;
-		if (Input.GetKeyDown(KeyCode.space)) {
+		if (Input.GetKeyDown(KeyCode.Space)) {
 			power = 0;
 		}
 
-		if (Input.GetKey(KeyCode.space)) {
+		if (Input.GetKey(KeyCode.Space)) {
 			power++;
 		}
 
-		if (Input.GetKey(KeyCode.UpArrow)) {
-			transform.GetComponent<Rigidbody>().AddForce(0,0,1);
-		}
-		if (Input.GetKey(KeyCode.DownArrow)) {
-			transform.GetComponent<Rigidbody>().AddForce(0,0,-1);
-		}
-		if (Input.GetKey(KeyCode.RightArrow)) {
-			transform.GetComponent<Rigidbody>().AddForce(1,0,0);
-		}
-		if (Input.GetKey(KeyCode.LeftArrow)) {
-			transform.GetComponent<Rigidbody>().AddForce(-1,0,0);
+		if (Input.GetKeyUp(KeyCode.Space)) {
+			Vector3 v = Camera.main.transform.position;
+			v -= pos;
+			v *= power*-1;
+			v.y = 0;
+			transform.GetComponent<Rigidbody>().AddForce(v);
 		}
 
-		Vector3 pos = transform.position;
-		pos.y += 2.5f;
-		pos.z -= 3f;
-		GameObject camera = GameObject.Find ("Main Camera");
-		camera.transform.position = pos;
+		if (Input.GetKey(KeyCode.LeftArrow)) {
+			Camera.main.transform.RotateAround (pos, new Vector3(0, 10, 0), -0.1f);
+			dgr+= 0.1f;
+
+		}
+
+		if (Input.GetKey(KeyCode.RightArrow)) {
+			Camera.main.transform.RotateAround (pos, new Vector3(0, 10, 0), 0.1f);
+			dgr-= 0.1f;
+		}
+
+		float d = (2 * Mathf.PI) * (dgr / 360);
+		float x = Mathf.Sin (d);
+		float y = Mathf.Cos (d);
+		x *= 10f;
+		y *= 10f;
+		pos.x += x;
+		pos.y += 10f;
+		pos.z -= y;
+		Camera.main.transform.position = pos;
+
+	
 	}
 }
