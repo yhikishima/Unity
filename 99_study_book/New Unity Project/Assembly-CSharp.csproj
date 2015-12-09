@@ -45,9 +45,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\TextureScript.cs" />
      <Compile Include="Assets\scripts\KeyScript.cs" />
      <Compile Include="Assets\scripts\Rigidscript.cs" />
+     <Compile Include="Assets\scripts\TextureScript.cs" />
      <Compile Include="Assets\scripts\myscript.cs" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
