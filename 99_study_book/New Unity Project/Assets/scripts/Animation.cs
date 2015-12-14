@@ -5,12 +5,24 @@ public class Animation : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		AnimatorClip clip = new AnimationClip ();
-	
+		AnimationClip clip = new AnimationClip ();
+		clip.legacy = true;
+		AnimationCurve curve = AnimationCurve.Linear (0f, 3f, 3f, 3f);
+		Keyframe key = new Keyframe (1.5f,7f);
+		curve.AddKey (key);
+		clip.SetCurve ("", typeof(Transform), "localPosition.z", curve);
+		clip.wrapMode = WrapMode.Loop;
+		Animation animation = GetComponent<Animation> ();
+
+		animation.Start ();
+
+
+//		animation.AddClip(clip, "clip1");
+//		animation.Play("clip1");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		transform.Rotate (1f, 1f, 1f);
 	}
 }
