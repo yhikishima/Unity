@@ -12,13 +12,13 @@ public class Animation : MonoBehaviour {
 		curve.AddKey (key);
 		clip.SetCurve ("", typeof(Transform), "localPosition.z", curve);
 		clip.wrapMode = WrapMode.Loop;
-		Animation animation = GetComponent<Animation> ();
+		Animation anim = GetComponent<Animation>();
 
-		animation.Start ();
+		anim.Start ();
 
 
-//		animation.AddClip(clip, "clip1");
-//		animation.Play("clip1");
+		anim.AddClip(clip, "clip1");
+		anim.Play("clip1");
 	}
 	
 	// Update is called once per frame
