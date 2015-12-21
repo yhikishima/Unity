@@ -45,12 +45,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\scripts\AnimationScript.cs" />
-     <Compile Include="Assets\scripts\KeyScript.cs" />
-     <Compile Include="Assets\scripts\Rigidscript.cs" />
-     <Compile Include="Assets\scripts\SmartballScript.cs" />
-     <Compile Include="Assets\scripts\TextureScript.cs" />
-     <Compile Include="Assets\scripts\myscript.cs" />
+     <Compile Include="Assets\Scripts\AnimationScript.cs" />
+     <Compile Include="Assets\Scripts\KeyScript.cs" />
+     <Compile Include="Assets\Scripts\Rigidscript.cs" />
+     <Compile Include="Assets\Scripts\SmartballScript.cs" />
+     <Compile Include="Assets\Scripts\TextureScript.cs" />
+     <Compile Include="Assets\Scripts\myscript.cs" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
