@@ -13,7 +13,7 @@ public class SmartballScript : MonoBehaviour {
 		moves [3] = new Vector3 (-3f, 1f, -3f);
 		moves [4] = new Vector3 (3f, 1f, -3f);
 		for (int i = 0; i < 5; i++) {
-			cubes[i] = GameObject.Find ("BoardCube" + 1);
+			cubes[i] = GameObject.Find ("BoardCube" + i);
 			Vector3 move = cubes[i].transform.position;
 			AnimationClip clip = new AnimationClip();
 			clip.legacy = true;
@@ -33,8 +33,8 @@ public class SmartballScript : MonoBehaviour {
 			keysZ[1] = new Keyframe(i + 1f, move.z);
 			AnimationCurve curveZ = new AnimationCurve(keysZ);
 			clip.SetCurve("", typeof(Transform), "localPosition.z", curveZ);
-			cubes[i].GetComponent<Animation>().AnimationClip(clip, "clip1");
-			cubes[i].GetComponent<Animation>().Play(clip, "clip1");
+//			cubes[i].GetComponent<Animation>().AnimationClip(clip, "clip1");
+//			cubes[i].GetComponent<Animation>().Play(clip, "clip1");
 
 
 		}
