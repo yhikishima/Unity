@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Rigidscript.cs" />
      <Compile Include="Assets\Scripts\SmartballScript.cs" />
      <Compile Include="Assets\Scripts\TextureScript.cs" />
+     <Compile Include="Assets\Scripts\TriggerScript.cs" />
      <Compile Include="Assets\Scripts\myscript.cs" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
