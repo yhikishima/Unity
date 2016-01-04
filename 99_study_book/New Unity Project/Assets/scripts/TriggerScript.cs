@@ -18,7 +18,7 @@ public class TriggerScript : MonoBehaviour {
 		try {
 			cube.transform.Rotate(1f, -1f, -1f);
 
-		} catch {}
+		} catch (System.NullReferenceException e) {}
 
 		if (Input.GetKey(KeyCode.LeftArrow)) {
 			rigidbody.AddForce(new Vector3(-1f, 0, 1f)); // To left roll
@@ -39,7 +39,9 @@ public class TriggerScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider) {
 		if (collider.gameObject.tag == "Player") {
-			collider.gameObject.GetComponent<Renderer>().material.color = new Color(0,1f,0,0.5f);
+			Rigidbody rigidbody = GetComponent<Rigidbody>();
+			rigidbody.angularVelocity = Vector3.zero;
+			rigidbody.velocity = Vector3.zero;
 		}
 	}
 
@@ -49,7 +51,18 @@ public class TriggerScript : MonoBehaviour {
 
 	void OnTriggerExit(Collider collider) {
 		if (collider.gameObject.tag == "Player") {
-			collider.gameObject.GetComponent<Renderer>().material.color = new Color(0,1f,0,0.5f);
+//			collider.gameObject.GetComponent<Renderer>().material.color = new Color(0,1f,0,0.5f);
+			Rigidbody rigidbody = GetComponent<Rigidbody>();
+			Vector3 v = rigidbody.velocity;
+			v.x *= 10;
+			v.y *= 10;
+			v.z *= 10;
+			rigidbody.velocity = v;
+			Vector3 v2 = rigidbody.angularVelocity;
+			v2.x *= 10;
+			v2.y *= 10;
+			v2.z *= 10;
+			rigidbody.angularVelocity = v2;
 		}
 	}
 }

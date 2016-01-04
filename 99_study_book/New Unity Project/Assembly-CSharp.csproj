@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AnimationScript.cs" />
      <Compile Include="Assets\Scripts\KeyScript.cs" />
+     <Compile Include="Assets\Scripts\ParticleScript.cs" />
      <Compile Include="Assets\Scripts\RigidBodyScript.cs" />
      <Compile Include="Assets\Scripts\Rigidscript.cs" />
      <Compile Include="Assets\Scripts\SmartballScript.cs" />
