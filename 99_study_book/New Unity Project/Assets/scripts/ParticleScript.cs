@@ -4,9 +4,15 @@ using System.Collections;
 public class ParticleScript : MonoBehaviour {
 	GameObject[] cubes = new GameObject[4];
 	GameObject[] gos = new GameObject[4];
+	float fog = 0;
 
 	// Use this for initialization
 	void Start () {
+		RenderSettings.fogMode = FogMode.Exponential;
+		RenderSettings.fog = true;
+		RenderSettings.fogColor = Color.gray;
+		RenderSettings.fogDensity = 0f;
+
 		for (int i =0; i < 4; i++) {
 			cubes[i] = GameObject.Find ("Cube" + i);
 			gos[i] = GameObject.Find ("GameObject" + i);
@@ -16,6 +22,11 @@ public class ParticleScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Rigidbody rigidbody = GetComponent<Rigidbody> ();
+
+		if (RenderSettings.fogDensity < fog) {
+			RenderSettings.fogDensity += 0.0001f;
+		}
+
 		foreach(GameObject obj in cubes) {
 			obj.transform.Rotate(new Vector3(1f, 1f, 1f));
 		}
