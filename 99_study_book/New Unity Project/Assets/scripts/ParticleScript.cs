@@ -51,6 +51,15 @@ public class ParticleScript : MonoBehaviour {
 			rigidbody.AddForce (new Vector3(0, 0, -1f)); // TO bottom roll
 		}
 
+		AddForceAll ();
+	}
+
+	void AddForceAll() {
+		GameObject[] objs = GameObject.FindGameObjectsWithTag("sphere");
+		foreach(GameObject obj in objs) {
+			Vector3 dir = transform.position - obj.transform.position;
+			obj.GetComponent<Rigidbody>().AddForce(dir * 0.1f);
+		}
 	}
 
 	void OnTriggerEnter(Collider collider) {
@@ -60,6 +69,13 @@ public class ParticleScript : MonoBehaviour {
 					ParticleSystem ps = gos[i].GetComponent<ParticleSystem>();
 					ps.Play ();
 					cubes[i].SetActive(false);
+					Vector3 p = cubes[i].transform.position;
+					GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+					obj.AddComponent<Rigidbody>();
+					obj.transform.position = p;
+					obj.GetComponent<Renderer>().material.color = Color.cyan;
+					obj.tag = "sphere";
+					fog += 0.05f;
 				}
 			}
 		}
