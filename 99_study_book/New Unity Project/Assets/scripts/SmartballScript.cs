@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class SmartballScript : MonoBehaviour {
 	float power = 0f;
 	GameObject[] cubes = new GameObject[5];
 	Vector3[] moves = new Vector3[5];
+	public Text score;
 	// Use this for initialization
 	void Start () {
 		moves [0] = new Vector3 (0f, 1f, 0f);
