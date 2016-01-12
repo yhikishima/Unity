@@ -14,7 +14,7 @@ public class AttackAreaActivator : MonoBehaviour {
 
 		for (int attackAreaCnt = 0; attackAreaCnt < attackAreas.Length; attackAreaCnt++) {
 			// AttackAreaスクリプトがついているGameObjectのコライダを配列に格納する.
-			attackAreaColliders[attackAreaCnt] = attackAreas[attackAreaCnt].collider;
+			attackAreaColliders[attackAreaCnt] = attackAreas[attackAreaCnt].GetComponent<Collider>();
 			attackAreaColliders[attackAreaCnt].enabled = false;  // 初期はfalseにしておく.
 
 			attackSeAudio = gameObject.AddComponent<AudioSource>();

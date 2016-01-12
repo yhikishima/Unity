@@ -55,13 +55,13 @@ public class AttackArea : MonoBehaviour {
 	// 攻撃判定を有効にする.
 	void OnAttack()
 	{
-		collider.enabled = true;
+		GetComponent<Collider>().enabled = true;
 	}
 
 
 	// 攻撃判定を無効にする.
 	void OnAttackTermination()
 	{
-		collider.enabled = false;
+		GetComponent<Collider>().enabled = false;
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 using System.Collections;
 
 public class SmartballScript : MonoBehaviour {
