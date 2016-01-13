@@ -4,14 +4,18 @@ using UnityEngine.Rendering;
 using System.Collections;
 
 public class RigidBodyScript : MonoBehaviour {
-	int counter = 0;
-	GameObject obj = null;
-
+	GameObject[] ob_cubes;
+	GameObject[] goals;
+	float power = 0f;
+	bool flg = true;
+	public Text score;
 
 	// Use this for initialization
 	void Start () {
-		GameObject[] objs  = GameObject.FindGameObjectsWithTag("Player");
-		foreach (GameObject obj in objs) {
+		ob_cubes = GameObject.FindGameObjectsWithTag ("ob_cube");
+		goals = GameObject.FindGameObjectsWithTag ("goal");
+		int n = 0;
+		foreach (GameObject obj in goals) {
 			Renderer renderer = obj.GetComponent<Renderer>();
 			renderer.material.SetFloat("_Mode", 3f);
 			renderer.material.SetInt("_SrcBlend", (int)BlendMode.SrcAlpha);
@@ -21,10 +25,22 @@ public class RigidBodyScript : MonoBehaviour {
 			renderer.material.EnableKeyword("_ALPHATEST_ON");
 			renderer.material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
 			renderer.material.renderQueue = 3000;
-
+			renderer.material.color = new Color(0f, 0.15f * n, 1f - 0.15f * n++, 0.5f);
 		}
 
-	
+		foreach (GameObject obj in ob_cubes) {
+			Vector3 move = obj.transform.position;
+			AnimationClip clip = new AnimationClip();
+			clip.legacy = true;
+			Keyframe[] keysX = new Keyframe[2];
+			keysX[0] = new Keyframe(0f, move.x - 5);
+			keysX[1] = new Keyframe(1f, move.x + 3);
+			AnimationCurve curveX = new AnimationCurve(keysX);
+			clip.SetCurve("", typeof(Transform), "localPosition.x", curveX);
+			clip.wrapMode = WrapMode.PingPong;
+
+
+		}
 	}
 	
 	// Update is called once per frame
