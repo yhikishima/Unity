@@ -38,7 +38,20 @@ public class RigidBodyScript : MonoBehaviour {
 			AnimationCurve curveX = new AnimationCurve(keysX);
 			clip.SetCurve("", typeof(Transform), "localPosition.x", curveX);
 			clip.wrapMode = WrapMode.PingPong;
+			Keyframe[] keysY = new Keyframe[2];
+			keysY[0] = new Keyframe(0f,move.y);
+			keysY[1] = new Keyframe(1f,move.y);
 
+			AnimationCurve curveY = new AnimationCurve(keysY);
+			clip.SetCurve("", typeof(Transform), "localPosition.y", curveY);
+			Keyframe[] keysZ = new Keyframe[2];
+			keysZ[0] = new Keyframe(0f,move.z);
+			keysZ[1] = new Keyframe(1f,move.z);
+			AnimationCurve curveZ = new AnimationCurve(keysZ);
+			clip.SetCurve("", typeof(Transform), "localPosition.z", curveZ);
+			Animation animation = obj.GetComponent<Animation>();
+			animation.AddClip(clip, "clip1");
+			animation.Play("clip1");
 
 		}
 	}
@@ -49,6 +62,10 @@ public class RigidBodyScript : MonoBehaviour {
 		Debug.Log(cube);
 
 		Rigidbody rigidbody = GetComponent<Rigidbody> ();
+
+		MoveCube ();
+
+		rigidbody.AddForce (0f, 0f, -1f);
 
 //		if (obj != null) {
 //			if (counter++ > 100) {
@@ -79,6 +96,12 @@ public class RigidBodyScript : MonoBehaviour {
 
 		if (Input.GetKey(KeyCode.DownArrow)) {
 			rigidbody.AddForce (new Vector3(-1f, 0, -1f)); // TO bottom roll
+		}
+	}
+
+	void MoveCube() {
+		foreach(GameObject obj in ob_cubes) {
+			obj.transform.Rotate(new Vector3(0f,1f,0f));
 		}
 	}
 
