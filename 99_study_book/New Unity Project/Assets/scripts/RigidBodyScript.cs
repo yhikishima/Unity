@@ -50,22 +50,37 @@ public class RigidBodyScript : MonoBehaviour {
 			AnimationCurve curveZ = new AnimationCurve(keysZ);
 			clip.SetCurve("", typeof(Transform), "localPosition.z", curveZ);
 			Animation animation = obj.GetComponent<Animation>();
-			animation.AddClip(clip, "clip1");
-			animation.Play("clip1");
+//			animation.AddClip(clip, "clip1");
+//			animation.Play("clip1");
 
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		GameObject cube = GameObject.Find("Cube2");
-		Debug.Log(cube);
-
-		Rigidbody rigidbody = GetComponent<Rigidbody> ();
-
+		Rigidbody rigidbody = GetComponent<Rigidbody>;
+		Renderer renderer = GetComponent<Renderer>;
+	
 		MoveCube ();
 
 		rigidbody.AddForce (0f, 0f, -1f);
+
+		if (flg) {
+			if (Input.GetKey(KeyCode.Space)) {
+				power += 0.01f;
+				if (power > 1f) {
+					power = 0.25f;
+				}
+				renderer.material.color = new Color(1f,power,0f);
+			}
+		}
+
+		if (Input.GetKeyUp(KeyCode.Space)) {
+			rigidbody.AddForce(new Vector3(0f,0f,power*3000f));
+			power = 0f;
+			renderer.material.color = Color.red;
+			flg = false;
+		}
 
 //		if (obj != null) {
 //			if (counter++ > 100) {
@@ -74,29 +89,29 @@ public class RigidBodyScript : MonoBehaviour {
 //			}
 //		}
 //
-		try {
-			cube.transform.Rotate (1f, -1f, -1f);
-		} catch (System.NullReferenceException e) {
-			Debug.Log (e);
-		}
-
-
-
-		if (Input.GetKey(KeyCode.LeftArrow)) {
-			rigidbody.AddForce(new Vector3(-1f, 0, 1f)); // To left roll
-		}
-
-		if (Input.GetKey(KeyCode.RightArrow)) {
-			rigidbody.AddForce (new Vector3(1f, 0, -1f)); // TO right roll
-		}
-
-		if (Input.GetKey(KeyCode.UpArrow)) {
-			rigidbody.AddForce (new Vector3(1f, 0, 1f)); // TO top roll
-		}
-
-		if (Input.GetKey(KeyCode.DownArrow)) {
-			rigidbody.AddForce (new Vector3(-1f, 0, -1f)); // TO bottom roll
-		}
+//		try {
+//			cube.transform.Rotate (1f, -1f, -1f);
+//		} catch (System.NullReferenceException e) {
+//			Debug.Log (e);
+//		}
+//
+//
+//
+//		if (Input.GetKey(KeyCode.LeftArrow)) {
+//			rigidbody.AddForce(new Vector3(-1f, 0, 1f)); // To left roll
+//		}
+//
+//		if (Input.GetKey(KeyCode.RightArrow)) {
+//			rigidbody.AddForce (new Vector3(1f, 0, -1f)); // TO right roll
+//		}
+//
+//		if (Input.GetKey(KeyCode.UpArrow)) {
+//			rigidbody.AddForce (new Vector3(1f, 0, 1f)); // TO top roll
+//		}
+//
+//		if (Input.GetKey(KeyCode.DownArrow)) {
+//			rigidbody.AddForce (new Vector3(-1f, 0, -1f)); // TO bottom roll
+//		}
 	}
 
 	void MoveCube() {
@@ -107,8 +122,10 @@ public class RigidBodyScript : MonoBehaviour {
 
 	//  collider test, Atack to Cube so Cube color is yello 
 	void OnCollisionEnter(Collision collision) {
-		if (collision.gameObject.name != "Plane" ) {
-			collision.gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+		if (collision.gameObject.tag == "ob_cube" ) {
+//			collision.gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+			Behaviour b = (Behaviour)collision.gameObject.GetComponent("Hello");
+			b.enabled = true;
 		}
 
 		if (collision.gameObject.tag == "Player" ) {
