@@ -128,7 +128,7 @@ public class RigidBodyScript : MonoBehaviour {
 			b.enabled = true;
 		}
 
-		if (collision.gameObject.tag == "Player" ) {
+//		if (collision.gameObject.tag == "Player" ) {
 //			if (obj != null) {
 //				obj.SetActive(true);
 //			}
@@ -136,12 +136,12 @@ public class RigidBodyScript : MonoBehaviour {
 //			obj = collision.gameObject;
 //			counter = 0;
 
-			Renderer renderer = collision.gameObject.GetComponent<Renderer>();
-			Color color = renderer.material.color;
-			color.a = 0.25f;
-			renderer.material.color = color;
-		}
-
+//			Renderer renderer = collision.gameObject.GetComponent<Renderer>();
+//			Color color = renderer.material.color;
+//			color.a = 0.25f;
+//			renderer.material.color = color;
+//		}
+//
 //		if (collision.gameObject.name == "Cube2") {
 //			collision.gameObject.GetComponent<Renderer>().material.color = new Color(1f, 0, 0, 0.25f);
 //
@@ -149,11 +149,35 @@ public class RigidBodyScript : MonoBehaviour {
 	}
 
 	void OnCollisionExit(Collision collision) {
-		if (collision.gameObject.tag == "Player") {
-			Renderer renderer = collision.gameObject.GetComponent<Renderer>();
-			Color color = renderer.material.color;
-			color.a = 1.0f;
-			renderer.material.color = color;
+		Rigidbody rigidbody = GetComponent<Rigidbody> ();
+		if (collision.gameObject.tag == "ob_cube") {
+			Behaviour b = (Behaviour)collision.gameObject.GetComponent("Halo");
+			b.enabled = false;
+			Vector3 v = rigidbody.velocity;
+			if (v.magnitude < 15) {
+				v *= 2.0f;
+
+				if (v.magnitude < 5) {
+					v *= 2.0f;
+				}
+				rigidbody.velocity = v;
+			}
 		}
+
+		if (collision.gameObject.tag = "ob_wall") {
+			Vector3 v = rigidbody.velocity;
+			if (v.magnitude < 15) {
+				v *= 2.0f;
+				if (v.magnitude < 5) {
+					v *= 2.0f;
+				}
+				rigidbody.velocity = v;
+			}
+		}
+
+	}
+
+	void OnTriggerEnter(Collider collider) {
+
 	}
 }
