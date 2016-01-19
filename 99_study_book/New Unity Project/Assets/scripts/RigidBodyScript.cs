@@ -58,8 +58,8 @@ public class RigidBodyScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Rigidbody rigidbody = GetComponent<Rigidbody>;
-		Renderer renderer = GetComponent<Renderer>;
+		Rigidbody rigidbody = GetComponent<Rigidbody>();
+		Renderer renderer = GetComponent<Renderer>();
 	
 		MoveCube ();
 
@@ -164,7 +164,7 @@ public class RigidBodyScript : MonoBehaviour {
 			}
 		}
 
-		if (collision.gameObject.tag = "ob_wall") {
+		if (collision.gameObject.tag == "ob_wall") {
 			Vector3 v = rigidbody.velocity;
 			if (v.magnitude < 15) {
 				v *= 2.0f;
@@ -178,6 +178,19 @@ public class RigidBodyScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider) {
-
+		Rigidbody rigidbody = GetComponent<Rigidbody> ();
+		if (collider.gameObject.tag == "goal") {
+			rigidbody.velocity = Vector3.zero;
+			rigidbody.angularVelocity = Vector3.zero;
+			int n = 1;
+			foreach(GameObject obj in goals) {
+				if (obj == collider.gameObject) {
+					score.text = "point:" + (n * 100);
+					ParticleSystem ps = collider.gameObject.GetComponent<ParticleSystem>();
+					ps.Play ();
+				}
+				n ++;
+			}
+		}
 	}
 }
