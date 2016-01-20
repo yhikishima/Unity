@@ -12,9 +12,12 @@ public class RigidBodyScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		ob_cubes = GameObject.FindGameObjectsWithTag ("ob_cube");
 		goals = GameObject.FindGameObjectsWithTag ("goal");
 		int n = 0;
+		AnimationClip clip = new AnimationClip();
+
 		foreach (GameObject obj in goals) {
 			Renderer renderer = obj.GetComponent<Renderer>();
 			renderer.material.SetFloat("_Mode", 3f);
@@ -30,7 +33,6 @@ public class RigidBodyScript : MonoBehaviour {
 
 		foreach (GameObject obj in ob_cubes) {
 			Vector3 move = obj.transform.position;
-			AnimationClip clip = new AnimationClip();
 			clip.legacy = true;
 			Keyframe[] keysX = new Keyframe[2];
 			keysX[0] = new Keyframe(0f, move.x - 5);
@@ -49,9 +51,11 @@ public class RigidBodyScript : MonoBehaviour {
 			keysZ[1] = new Keyframe(1f,move.z);
 			AnimationCurve curveZ = new AnimationCurve(keysZ);
 			clip.SetCurve("", typeof(Transform), "localPosition.z", curveZ);
-			Animation animation = obj.GetComponent<Animation>();
-//			animation.AddClip(clip, "clip1");
-//			animation.Play("clip1");
+			Animation anim = obj.GetComponent<Animation>();
+
+			Debug.Log(obj);
+//			anim.AddClip(clip, "cube");
+//			anim.Play("cube");
 
 		}
 	}
