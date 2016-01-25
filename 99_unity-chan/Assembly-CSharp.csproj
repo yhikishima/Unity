@@ -50,6 +50,7 @@
      <Compile Include="Assets\UnityChan\Scripts\IdleChanger.cs" />
      <Compile Include="Assets\UnityChan\Scripts\SampleUnityChanCamera.cs" />
      <Compile Include="Assets\UnityChan\Scripts\SampleUnityChanController.cs" />
+     <Compile Include="Assets\UnityChan\Scripts\SampleUnityChanTrigger.cs" />
      <Compile Include="Assets\UnityChan\Scripts\SceneLoader.cs" />
      <Compile Include="Assets\UnityChan\Scripts\ThirdPersonCamera.cs" />
      <Compile Include="Assets\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
