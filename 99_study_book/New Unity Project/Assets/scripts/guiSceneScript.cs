@@ -5,6 +5,8 @@ using System.Collections;
 public class guiSceneScript : MonoBehaviour {
 	public Canvas canvas;
 	public Text text;
+	public Toggle toggle;
+	public Slider slider;
 
 	// Use this for initialization
 	void Start () {
@@ -21,5 +23,14 @@ public class guiSceneScript : MonoBehaviour {
 
 	public void OnButtonClick () {
 		text.text = "ok!!";
+	}
+
+	public void OnToggleChanged() {
+		text.text = toggle.isOn ? "On" : "Off";
+	}
+
+	public void OnSliderChanged() {
+		text.text = "value = " + slider.value;
+		Debug.Log(slider.value);
 	}
 }
