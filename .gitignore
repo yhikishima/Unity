@@ -6,3 +6,8 @@ Temp
 *.sln
 *.userprefs
 99_Unitybook
+**/LocalCache/**
+**/obj/**
+**/Jemast/**
+**/Jemast.meta
+**/Resources/**

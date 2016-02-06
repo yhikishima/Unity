@@ -51,11 +51,11 @@ public class RigidBodyScript : MonoBehaviour {
 			keysZ[1] = new Keyframe(1f,move.z);
 			AnimationCurve curveZ = new AnimationCurve(keysZ);
 			clip.SetCurve("", typeof(Transform), "localPosition.z", curveZ);
-			Animation anim = obj.GetComponent<Animation>();
+			UnityEngine.Animation anim = obj.GetComponent<UnityEngine.Animation>();
 
 			Debug.Log(obj);
-//			anim.AddClip(clip, "cube");
-//			anim.Play("cube");
+			anim.AddClip(clip, "cube");
+			anim.Play("cube");
 
 		}
 	}
