@@ -102,6 +102,7 @@
      <Compile Include="Assets\Resources\Standard Assets\Utility\WaypointCircuit.cs" />
      <Compile Include="Assets\Resources\Standard Assets\Utility\WaypointProgressTracker.cs" />
      <Compile Include="Assets\Scripts\BlockManager.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <None Include="Assets\Resources\Standard Assets\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\Resources\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Jemast\LocalCache\README.txt" />
