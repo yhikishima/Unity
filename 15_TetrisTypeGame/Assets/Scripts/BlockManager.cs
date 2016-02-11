@@ -1,26 +1,31 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BlockManager : MonoBehaviour {
-	public GameObject blockPrefab;
-	private int block_x_max = 3;
-	private int block_z_max = 3;
+	float spd = 0.1f;
 
-	// Use this for initialization
+
 	void Start () {
-		CreateWakuBlock ();
+
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		
-	}
+		Vector3 transformPos = transform.position;
 
-	void CreateWakuBlock() {
-
-
-		//同じくx軸に右と左に枠を作ります
-
-
+		if (Input.GetKey("right")) {
+			Debug.Log ("right");
+			transformPos.x += spd;
+		}
+		if (Input.GetKey("left")) {
+			transformPos.x -= spd;
+		}
+		if (Input.GetKey("up")) {
+			transformPos.z += spd;
+		}
+		if (Input.GetKey("down")) {
+			transformPos.z -= spd;
+		}
+		transform.position = transformPos;
 	}
 }
