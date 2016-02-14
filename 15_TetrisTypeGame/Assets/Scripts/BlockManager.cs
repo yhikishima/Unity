@@ -4,9 +4,16 @@ using System.Collections;
 
 public class BlockManager : MonoBehaviour {
 	float spd = 0.1f;
+	float blockH;
 
 
 	void Start () {
+		blockH = Screen.width;
+
+		Debug.Log ("aaa");
+		Debug.Log (blockH);
+
+//		Vector3 transformPos = transform.position;
 
 	}
 
@@ -26,6 +33,14 @@ public class BlockManager : MonoBehaviour {
 		if (Input.GetKey("down")) {
 			transformPos.z -= spd;
 		}
+
+		transformPos.y -= 0.1f;
 		transform.position = transformPos;
+	}
+
+	void OnCollisionEnter(Collision col) {
+		Debug.Log ("落ちた");
+		Rigidbody rb = GetComponent<Rigidbody>();
+		rb.velocity = Vector3.zero;
 	}
 }

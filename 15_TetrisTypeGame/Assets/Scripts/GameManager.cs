@@ -6,11 +6,13 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Instantiate(Block);
+
+		// 2秒ごとにゲージが減る
+		InvokeRepeating("InstantBlock", 2, 2);
 	}
 	
-	// Update is called once per frame
-	void Update () {
+
+	private void InstantBlock() {
 		Instantiate(Block);
 	}
 }
