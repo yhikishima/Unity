@@ -5,7 +5,7 @@ using System.Collections;
 public class BlockManager : MonoBehaviour {
 	float spd = 0.6f;
 	float blockH;
-	public bool BlockDropFlg = true;
+	public static bool BlockDropFlg = true;
 
 	void Start () {
 		blockH = Screen.width;
@@ -14,6 +14,7 @@ public class BlockManager : MonoBehaviour {
 		Debug.Log (blockH);
 
 		InvokeRepeating("dropBlock", 1, 1);
+
 
 //		Vector3 transformPos = transform.position;
 
