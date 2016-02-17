@@ -6,12 +6,10 @@ public class BlockManager : MonoBehaviour {
 	float spd = 0.6f;
 	float blockH;
 	public static bool BlockDropFlg = true;
+	private bool stopFlg = false;
 
 	void Start () {
 		blockH = Screen.width;
-
-		Debug.Log ("aaa");
-		Debug.Log (blockH);
 
 		InvokeRepeating("dropBlock", 1, 1);
 
@@ -22,16 +20,16 @@ public class BlockManager : MonoBehaviour {
 
 	void dropBlock () {
 		Vector3 transformPos = transform.position;
-		if (BlockDropFlg) {
+		if (!stopFlg) {
 			transformPos.y -= 0.6f;
+			transform.position = transformPos;
 		}
-		transform.position = transformPos;
 	}
 
 	void Update () {
 		Vector3 transformPos = transform.position;
 
-		if (BlockDropFlg) {
+		if (!stopFlg) {
 			if (Input.GetKeyDown("right")) {
 				transformPos.x += spd;
 			}
@@ -48,7 +46,9 @@ public class BlockManager : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col) {
+
 		BlockDropFlg = false;
+		stopFlg = true;
 		Debug.Log ("落ちた");
 		Rigidbody rb = GetComponent<Rigidbody>();
 //		rb.useGravity = true;
