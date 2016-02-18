@@ -7,8 +7,11 @@ public class BlockManager : MonoBehaviour {
 	float spd = 0.6f;
 	float blockH;
 	public static bool BlockDropFlg = true;
+	public string colorTag;
+
 	private bool stopFlg = false;
 	private string[] colorArray = new string[] {"red", "blue", "yellow", "green"};
+	private int blockConcat = 1;
 
 	void Start () {
 		blockH = Screen.width;
@@ -23,6 +26,7 @@ public class BlockManager : MonoBehaviour {
 
 //		Color randomColor = new Color( Random.value, Random.value, Random.value, 1.0f );
 		gameObject.GetComponent<Renderer>().material.color = colroData[randomColor];
+		colorTag = randomColor;
 
 		InvokeRepeating("dropBlock", 1, 1);
 	}
@@ -55,8 +59,48 @@ public class BlockManager : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col) {
-		if (col.gameObject.CompareTag("StopBlock")) {
-			Debug.Log ("ぶつかった");
+		var colGameObj = col.gameObject;
+
+		if (col.gameObject.CompareTag("Block") && colorTag == colGameObj.GetComponent<BlockManager>().colorTag) {
+			Debug.Log (col.gameObject.transform.childCount);
+
+			if (transform.parent || transform.childCount > 1){
+				Debug.Log ("いたよ。。親が");
+
+				colGameObj.transform.parent = transform.parent;
+
+				return;
+			}
+				
+			GameObject obj = new GameObject();
+			obj.name = "parent";
+
+			Debug.Log ("親いないね");
+
+			if (colGameObj.transform.childCount > 1) {
+				Debug.Log ("aaaaaaa");
+//				Destroy (colGameObj);
+//				if (gameObj.transform.childCount == 2) {
+//					Destroy (gameObj.transform.parent);
+//				}
+				transform.parent = obj.transform;
+
+			} else {
+				colGameObj.transform.parent = obj.transform;
+			}
+
+
+
+
+//
+//			blockConcat++;
+//
+//			if (blockConcat == 4) {
+//				Destroy ();
+//			}			
+		}
+			
+		if (col.gameObject.CompareTag("StopWall") || col.gameObject.CompareTag("Block")) {
 			BlockDropFlg = false;
 			stopFlg = true;
 		}
