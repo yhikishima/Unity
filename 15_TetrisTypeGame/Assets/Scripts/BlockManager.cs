@@ -61,17 +61,24 @@ public class BlockManager : MonoBehaviour {
 	void OnCollisionEnter(Collision col) {
 		var colGameObj = col.gameObject;
 
-		if (col.gameObject.CompareTag("Block") && colorTag == colGameObj.GetComponent<BlockManager>().colorTag) {
+		if (colGameObj.CompareTag("Block") && colorTag == colGameObj.GetComponent<BlockManager>().colorTag) {
 			Debug.Log (col.gameObject.transform.childCount);
 
-			if (transform.parent || transform.childCount > 1){
-				Debug.Log ("いたよ。。親が");
+			if (transform.parent && !colGameObj.transform.parent){
+ 				Debug.Log ("いたよ。。親が");
 
 				colGameObj.transform.parent = transform.parent;
 
 				return;
+			} else if (colGameObj.transform.parent && !transform.parent) {
+				Debug.Log ("いたよ。。こっちの親が");
+
+				transform.parent = colGameObj.transform.parent;
+
+				return;
+
 			}
-				
+
 			GameObject obj = new GameObject();
 			obj.name = "parent";
 
@@ -79,7 +86,7 @@ public class BlockManager : MonoBehaviour {
 
 			if (colGameObj.transform.childCount > 1) {
 				Debug.Log ("aaaaaaa");
-//				Destroy (colGameObj);
+//				Destroy (colGameObj);	
 //				if (gameObj.transform.childCount == 2) {
 //					Destroy (gameObj.transform.parent);
 //				}
