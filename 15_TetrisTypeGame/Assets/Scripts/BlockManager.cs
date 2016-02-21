@@ -64,6 +64,7 @@ public class BlockManager : MonoBehaviour {
 		if (colGameObj.CompareTag("Block") && colorTag == colGameObj.GetComponent<BlockManager>().colorTag) {
 			Debug.Log (col.gameObject.transform.childCount);
 
+			// ２個の時
 			if (transform.parent && !colGameObj.transform.parent){
  				Debug.Log ("いたよ。。親が");
 
@@ -72,13 +73,17 @@ public class BlockManager : MonoBehaviour {
 				return;
 			} else if (colGameObj.transform.parent && !transform.parent) {
 				Debug.Log ("いたよ。。こっちの親が");
-
 				transform.parent = colGameObj.transform.parent;
-
+				return;
+			} else if (colGameObj.transform.parent && transform.parent) {
+				Debug.Log ("いたよ。。両方の親が");
+				BlockDropFlg = false;
+				stopFlg = true;
 				return;
 
 			}
 
+			// １個の時
 			GameObject obj = new GameObject();
 			obj.name = "parent";
 
