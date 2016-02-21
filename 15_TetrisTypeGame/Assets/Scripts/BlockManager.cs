@@ -64,52 +64,50 @@ public class BlockManager : MonoBehaviour {
 		if (colGameObj.CompareTag("Block") && colorTag == colGameObj.GetComponent<BlockManager>().colorTag) {
 			Debug.Log (col.gameObject.transform.childCount);
 
-			// ２個の時
-			if (transform.parent && !colGameObj.transform.parent){
- 				Debug.Log ("いたよ。。親が");
+			// 2個の時
+			if (transform.parent && !colGameObj.transform.parent) {
+				Debug.Log ("いたよ。。親が");
 
 				colGameObj.transform.parent = transform.parent;
 
-				return;
+			// 2個のとき
 			} else if (colGameObj.transform.parent && !transform.parent) {
 				Debug.Log ("いたよ。。こっちの親が");
 				transform.parent = colGameObj.transform.parent;
-				return;
-			} else if (colGameObj.transform.parent && transform.parent) {
-				Debug.Log ("いたよ。。両方の親が");
-				BlockDropFlg = false;
-				stopFlg = true;
-				return;
 
-			}
+			// 3個以上のとき
+			} else if (colGameObj.transform.parent && transform.parent) {
+
+				Debug.Log ("いたよ。。両方の親が");
+
+				if (transform.parent.name == "parent3") {
+					Destroy (transform.parent.gameObject);
+				} else {
+					transform.parent.name = "parent3";				
+				}
 
 			// １個の時
-			GameObject obj = new GameObject();
-			obj.name = "parent";
-
-			Debug.Log ("親いないね");
-
-			if (colGameObj.transform.childCount > 1) {
-				Debug.Log ("aaaaaaa");
-//				Destroy (colGameObj);	
-//				if (gameObj.transform.childCount == 2) {
-//					Destroy (gameObj.transform.parent);
-//				}
-				transform.parent = obj.transform;
-
 			} else {
-				colGameObj.transform.parent = obj.transform;
+				GameObject obj = new GameObject();
+				obj.name = "parent";
+
+				Debug.Log ("親いないね");
+
+				if (colGameObj.transform.childCount > 1) {
+					Debug.Log ("aaaaaaa");
+					//				Destroy (colGameObj);	
+					//				if (gameObj.transform.childCount == 2) {
+					//					Destroy (gameObj.transform.parent);
+					//				}
+					transform.parent = obj.transform;
+
+				} else {
+					colGameObj.transform.parent = obj.transform;
+				}
+			
+			
 			}
 
-
-
-
-//
-//			blockConcat++;
-//
-//			if (blockConcat == 4) {
-//				Destroy ();
-//			}			
 		}
 			
 		if (col.gameObject.CompareTag("StopWall") || col.gameObject.CompareTag("Block")) {
