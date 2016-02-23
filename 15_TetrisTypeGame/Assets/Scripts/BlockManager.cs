@@ -82,6 +82,8 @@ public class BlockManager : MonoBehaviour {
 
 				if (transform.parent.name == "parent3") {
 					Destroy (transform.parent.gameObject);
+					PointManager.GamePoint += 100;
+
 				} else {
 					transform.parent.name = "parent3";				
 				}
@@ -94,7 +96,6 @@ public class BlockManager : MonoBehaviour {
 				Debug.Log ("親いないね");
 
 				if (colGameObj.transform.childCount > 1) {
-					Debug.Log ("aaaaaaa");
 					//				Destroy (colGameObj);	
 					//				if (gameObj.transform.childCount == 2) {
 					//					Destroy (gameObj.transform.parent);

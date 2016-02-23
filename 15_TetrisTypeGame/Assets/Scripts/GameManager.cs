@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour {
 
 	void Update () {
 		if (!BlockManager.BlockDropFlg) {
-			Debug.Log ("落ちるよ");
 			InstantBlock();
 			BlockManager.BlockDropFlg = true;
 		}
