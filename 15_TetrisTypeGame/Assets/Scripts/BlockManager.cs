@@ -5,17 +5,13 @@ using System.Collections.Generic;
 
 public class BlockManager : MonoBehaviour {
 	float spd = 0.6f;
-	float blockH;
 	public static bool BlockDropFlg = true;
 	public string colorTag;
 
 	private bool stopFlg = false;
 	private string[] colorArray = new string[] {"red", "blue", "yellow", "green"};
-	private int blockConcat = 1;
 
 	void Start () {
-		blockH = Screen.width;
-
 		Dictionary<string, Color> colroData = new Dictionary<string, Color>();
 		colroData.Add ("red", Color.red);
 		colroData.Add ("blue", Color.blue);
@@ -58,25 +54,42 @@ public class BlockManager : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter(Collision col) {
-		var colGameObj = col.gameObject;
+	void OnCollisionEnter(Collision other) {
+		GameObject otherGameObj = other.gameObject;
+		CapsuleCollider Capcol = gameObject.GetComponent<Collider>() as CapsuleCollider;
 
-		if (colGameObj.CompareTag("Block") && colorTag == colGameObj.GetComponent<BlockManager>().colorTag) {
-			Debug.Log (col.gameObject.transform.childCount);
+		CapsuleCollider otCol = otherGameObj.GetComponent<Collider> () as CapsuleCollider;
+
+		Vector3 contact = other.contacts [0].point;
+
+		// 着地
+		if (contact.x == gameObject.transform.position.x && (otherGameObj.CompareTag("StopWall") || otherGameObj.CompareTag("Block"))) {
+			if (Capcol != null) {
+				Capcol.radius = 0.5f;
+			}
+
+//			Capcol.attachedRigidbody.useGravity = true;
+//			Capcol.attachedRigidbody.constraints = RigidbodyConstraints.None;
+			BlockDropFlg = false;
+			stopFlg = true;
+		}
+
+		// 結合
+		if (otherGameObj.CompareTag("Block") && colorTag == otherGameObj.GetComponent<BlockManager>().colorTag) {
 
 			// 2個の時
-			if (transform.parent && !colGameObj.transform.parent) {
-				Debug.Log ("いたよ。。親が");
+			if (transform.parent && !otherGameObj.transform.parent) {
+				Debug.Log ("いたよ。。親が");	
 
-				colGameObj.transform.parent = transform.parent;
+				otherGameObj.transform.parent = transform.parent;
 
 			// 2個のとき
-			} else if (colGameObj.transform.parent && !transform.parent) {
+			} else if (otherGameObj.transform.parent && !transform.parent) {
 				Debug.Log ("いたよ。。こっちの親が");
-				transform.parent = colGameObj.transform.parent;
+				transform.parent = otherGameObj.transform.parent;
 
 			// 3個以上のとき
-			} else if (colGameObj.transform.parent && transform.parent) {
+			} else if (otherGameObj.transform.parent && transform.parent) {
 
 				Debug.Log ("いたよ。。両方の親が");
 
@@ -95,7 +108,7 @@ public class BlockManager : MonoBehaviour {
 
 				Debug.Log ("親いないね");
 
-				if (colGameObj.transform.childCount > 1) {
+				if (otherGameObj.transform.childCount > 1) {
 					//				Destroy (colGameObj);	
 					//				if (gameObj.transform.childCount == 2) {
 					//					Destroy (gameObj.transform.parent);
@@ -103,17 +116,21 @@ public class BlockManager : MonoBehaviour {
 					transform.parent = obj.transform;
 
 				} else {
-					colGameObj.transform.parent = obj.transform;
+					otherGameObj.transform.parent = obj.transform;
 				}
-			
-			
 			}
+		}
+	}
 
-		}
-			
-		if (col.gameObject.CompareTag("StopWall") || col.gameObject.CompareTag("Block")) {
-			BlockDropFlg = false;
-			stopFlg = true;
-		}
+	void OnTriggerExit(Collider other) {
+		Debug.Log ("離れた");
+		Debug.Log (other);
+//		Debug.Log (other.contacts);
+//		Vector3 contact = other.contacts[0].point;
+//
+//		if (contact.x == gameObject.transform.position.x) {
+//			BlockDropFlg = true;
+//			stopFlg = false;
+//		}
 	}
 }
