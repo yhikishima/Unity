@@ -54,6 +54,16 @@ public class BlockManager : MonoBehaviour {
 		}
 	}
 
+	string GetContactObject(GameObject otherGameObj) {
+		if (otherGameObj.CompareTag ("StopWall")) {
+			return "StopWall";
+		} else if (otherGameObj.CompareTag ("Block")) {
+			return "Block";
+		} else {
+			return "";
+		}
+	}
+
 	void OnCollisionEnter(Collision other) {
 		GameObject otherGameObj = other.gameObject;
 		CapsuleCollider Capcol = gameObject.GetComponent<Collider>() as CapsuleCollider;
@@ -61,9 +71,10 @@ public class BlockManager : MonoBehaviour {
 		CapsuleCollider otCol = otherGameObj.GetComponent<Collider> () as CapsuleCollider;
 
 		Vector3 contact = other.contacts [0].point;
+		string contactObject = GetContactObject(otherGameObj);
 
 		// 着地
-		if (contact.x == gameObject.transform.position.x && (otherGameObj.CompareTag("StopWall") || otherGameObj.CompareTag("Block"))) {
+		if (contact.x == gameObject.transform.position.x && (contactObject == "StopWall" || contactObject == "Block")) {
 			if (Capcol != null) {
 				Capcol.radius = 0.5f;
 			}
@@ -72,6 +83,10 @@ public class BlockManager : MonoBehaviour {
 //			Capcol.attachedRigidbody.constraints = RigidbodyConstraints.None;
 			BlockDropFlg = false;
 			stopFlg = true;
+		}
+
+		if (contact.x != gameObject.transform.position.x && contactObject == "StopWall") {
+			return;
 		}
 
 		// 結合
@@ -104,15 +119,9 @@ public class BlockManager : MonoBehaviour {
 			// １個の時
 			} else {
 				GameObject obj = new GameObject();
-				obj.name = "parent";
-
 				Debug.Log ("親いないね");
 
 				if (otherGameObj.transform.childCount > 1) {
-					//				Destroy (colGameObj);	
-					//				if (gameObj.transform.childCount == 2) {
-					//					Destroy (gameObj.transform.parent);
-					//				}
 					transform.parent = obj.transform;
 
 				} else {
