@@ -68,7 +68,6 @@ public class BlockManager : MonoBehaviour {
 		GameObject otherGameObj = other.gameObject;
 		CapsuleCollider Capcol = gameObject.GetComponent<Collider>() as CapsuleCollider;
 
-		CapsuleCollider otCol = otherGameObj.GetComponent<Collider> () as CapsuleCollider;
 
 		Vector3 contact = other.contacts [0].point;
 		string contactObject = GetContactObject(otherGameObj);
@@ -134,7 +133,8 @@ public class BlockManager : MonoBehaviour {
 	void OnTriggerExit(Collider other) {
 		Debug.Log ("離れた");
 		Debug.Log (other);
-//		Debug.Log (other.contacts);
+
+		//		Debug.Log (other.contacts);
 //		Vector3 contact = other.contacts[0].point;
 //
 //		if (contact.x == gameObject.transform.position.x) {
