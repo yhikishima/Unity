@@ -118,6 +118,7 @@ public class BlockManager : MonoBehaviour {
 			// １個の時
 			} else {
 				GameObject obj = new GameObject();
+				obj.name = "parent";
 				Debug.Log ("親いないね");
 
 				if (otherGameObj.transform.childCount > 1) {
