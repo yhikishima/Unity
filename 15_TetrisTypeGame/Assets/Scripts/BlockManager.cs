@@ -64,6 +64,20 @@ public class BlockManager : MonoBehaviour {
 		}
 	}
 
+
+	/*
+	 * 設計を考えて見る！
+	 * 
+	 * ①１つの時
+	 * ②
+	 * ③
+	 * ④
+	 * 
+
+
+	*/
+
+
 	void OnCollisionEnter(Collision other) {
 		GameObject otherGameObj = other.gameObject;
 		CapsuleCollider Capcol = gameObject.GetComponent<Collider>() as CapsuleCollider;
@@ -75,7 +89,7 @@ public class BlockManager : MonoBehaviour {
 		// 着地
 		if (contact.x == gameObject.transform.position.x && (contactObject == "StopWall" || contactObject == "Block")) {
 			if (Capcol != null) {
-				Capcol.radius = 0.5f;
+//				Capcol.radius = 0.5f;
 			}
 
 //			Capcol.attachedRigidbody.useGravity = true;
