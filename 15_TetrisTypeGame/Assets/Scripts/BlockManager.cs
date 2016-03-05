@@ -97,63 +97,77 @@ public class BlockManager : MonoBehaviour {
 		Vector3 contact = other.contacts [0].point;
 		string contactObject = GetContactObject(otherGameObj);
 
-		// 着地
-		if (contact.x == gameObject.transform.position.x && (contactObject == "StopWall" || contactObject == "Block")) {
-			if (Capcol != null) {
-//				Capcol.radius = 0.5f;
-			}
-
-//			Capcol.attachedRigidbody.useGravity = true;
-//			Capcol.attachedRigidbody.constraints = RigidbodyConstraints.None;
+		if (contactObject == "StopWall" || contactObject == "Block") {
+			Capcol.attachedRigidbody.useGravity = true;
+			Capcol.attachedRigidbody.constraints = RigidbodyConstraints.None;
 			BlockDropFlg = false;
 			stopFlg = true;
 		}
 
-		if (contact.x != gameObject.transform.position.x && contactObject == "StopWall") {
+		if (contact.x != gameObject.transform.position.x) {
 			return;
 		}
 
-		// 結合
-		if (otherGameObj.CompareTag("Block") && colorTag == otherGameObj.GetComponent<BlockManager>().colorTag) {
 
-			// 2個の時
-			if (transform.parent && !otherGameObj.transform.parent) {
-				Debug.Log ("いたよ。。親が");	
 
-				otherGameObj.transform.parent = transform.parent;
 
-			// 2個のとき
-			} else if (otherGameObj.transform.parent && !transform.parent) {
-				Debug.Log ("いたよ。。こっちの親が");
-				transform.parent = otherGameObj.transform.parent;
-
-			// 3個以上のとき
-			} else if (otherGameObj.transform.parent && transform.parent) {
-
-				Debug.Log ("いたよ。。両方の親が");
-
-				if (transform.parent.name == "parent3") {
-					Destroy (transform.parent.gameObject);
-					PointManager.GamePoint += 100;
-
-				} else {
-					transform.parent.name = "parent3";				
-				}
-
-			// １個の時
-			} else {
-				GameObject obj = new GameObject();
-				obj.name = "parent";
-				Debug.Log ("親いないね");
-
-				if (otherGameObj.transform.childCount > 1) {
-					transform.parent = obj.transform;
-
-				} else {
-					otherGameObj.transform.parent = obj.transform;
-				}
-			}
-		}
+		// 着地
+//		if (contact.x == gameObject.transform.position.x && (contactObject == "StopWall" || contactObject == "Block")) {
+//			if (Capcol != null) {
+////				Capcol.radius = 0.5f;
+//			}
+//
+////			Capcol.attachedRigidbody.useGravity = true;
+////			Capcol.attachedRigidbody.constraints = RigidbodyConstraints.None;
+//			BlockDropFlg = false;
+//			stopFlg = true;
+//		}
+//
+//		if (contact.x != gameObject.transform.position.x && contactObject == "StopWall") {
+//			return;
+//		}
+//
+//		// 結合
+//		if (otherGameObj.CompareTag("Block") && colorTag == otherGameObj.GetComponent<BlockManager>().colorTag) {
+//
+//			// 2個の時
+//			if (transform.parent && !otherGameObj.transform.parent) {
+//				Debug.Log ("いたよ。。親が");	
+//
+//				otherGameObj.transform.parent = transform.parent;
+//
+//			// 2個のとき
+//			} else if (otherGameObj.transform.parent && !transform.parent) {
+//				Debug.Log ("いたよ。。こっちの親が");
+//				transform.parent = otherGameObj.transform.parent;
+//
+//			// 3個以上のとき
+//			} else if (otherGameObj.transform.parent && transform.parent) {
+//
+//				Debug.Log ("いたよ。。両方の親が");
+//
+//				if (transform.parent.name == "parent3") {
+//					Destroy (transform.parent.gameObject);
+//					PointManager.GamePoint += 100;
+//
+//				} else {
+//					transform.parent.name = "parent3";				
+//				}
+//
+//			// １個の時
+//			} else {
+//				GameObject obj = new GameObject();
+//				obj.name = "parent";
+//				Debug.Log ("親いないね");
+//
+//				if (otherGameObj.transform.childCount > 1) {
+//					transform.parent = obj.transform;
+//
+//				} else {
+//					otherGameObj.transform.parent = obj.transform;
+//				}
+//			}
+//		}
 	}
 
 	void OnTriggerExit(Collider other) {
