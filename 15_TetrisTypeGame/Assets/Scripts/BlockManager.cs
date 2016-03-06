@@ -107,8 +107,7 @@ public class BlockManager : MonoBehaviour {
 		if (contact.x != gameObject.transform.position.x) {
 			return;
 		}
-
-
+			
 
 
 		// 着地
