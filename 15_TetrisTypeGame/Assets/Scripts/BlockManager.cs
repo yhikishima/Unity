@@ -64,7 +64,24 @@ public class BlockManager : MonoBehaviour {
 		}
 	}
 
+	bool SearchSameColor(GameObject selfObj, GameObject otherObj) {
+		if (selfObj.GetComponent<BlockManager> ().colorTag == otherObj.GetComponent<BlockManager> ().colorTag) {
+			Debug.Log ("同じ色じゃん");
+			return true;
+		} else {
+			return false;
+		}
+	}
 
+	bool SearchParent(GameObject selfObj, GameObject otherObj) {
+		if (selfObj.transform.parent && otherObj.transform.parent) {
+			Debug.Log ("親いるーじゃん");
+			return true;
+		} else {
+			return false;
+		}
+	}
+		
 	/*
 	 * 設計を考えてみる！
 	 * 
@@ -90,13 +107,14 @@ public class BlockManager : MonoBehaviour {
 
 
 	void OnCollisionEnter(Collision other) {
+		GameObject selfGameObject = gameObject;
 		GameObject otherGameObj = other.gameObject;
-		CapsuleCollider Capcol = gameObject.GetComponent<Collider>() as CapsuleCollider;
 
+		CapsuleCollider Capcol = selfGameObject.GetComponent<Collider>() as CapsuleCollider;
 
-		Vector3 contact = other.contacts [0].point;
 		string contactObject = GetContactObject(otherGameObj);
 
+		// 止めるかどうか
 		if (contactObject == "StopWall" || contactObject == "Block") {
 			Capcol.attachedRigidbody.useGravity = true;
 			Capcol.attachedRigidbody.constraints = RigidbodyConstraints.None;
@@ -104,11 +122,27 @@ public class BlockManager : MonoBehaviour {
 			stopFlg = true;
 		}
 
-		if (contact.x != gameObject.transform.position.x) {
+		Vector3 contact = other.contacts [0].point;
+		// 接触位置が違っている場合はくっつけない
+		if (contact.x != otherGameObj.transform.position.x) {
 			return;
 		}
-			
 
+		// 同じ色かどうか
+		bool isSameColor = SearchSameColor(selfGameObject, otherGameObj);
+
+		// 親がいるかどうか
+		bool isParent = SearchParent(selfGameObject, otherGameObj);
+
+		Debug.Log (isSameColor);
+		Debug.Log (isParent);
+
+		// 同じ色で親がいなければ親を作る
+		if (isSameColor && (isParent == false)) {
+			GameObject obj = new GameObject();
+			obj.name = "parent";
+			selfGameObject.transform.parent = obj.transform;
+		}
 
 		// 着地
 //		if (contact.x == gameObject.transform.position.x && (contactObject == "StopWall" || contactObject == "Block")) {
