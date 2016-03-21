@@ -73,8 +73,8 @@ public class BlockManager : MonoBehaviour {
 		}
 	}
 
-	bool SearchParent(GameObject selfObj, GameObject otherObj) {
-		if (selfObj.transform.parent && otherObj.transform.parent) {
+	bool SearchParent(GameObject selfObj) {
+		if (selfObj.transform.parent) {
 			Debug.Log ("親いるーじゃん");
 			return true;
 		} else {
@@ -132,7 +132,8 @@ public class BlockManager : MonoBehaviour {
 		bool isSameColor = SearchSameColor(selfGameObject, otherGameObj);
 
 		// 親がいるかどうか
-		bool isParent = SearchParent(selfGameObject, otherGameObj);
+		bool isParent = SearchParent(selfGameObject);
+//		bool isOtherParent = SearchParent(selfGameObject, otherGameObj);
 
 		Debug.Log (isSameColor);
 		Debug.Log (isParent);
@@ -143,6 +144,10 @@ public class BlockManager : MonoBehaviour {
 			obj.name = "parent";
 			selfGameObject.transform.parent = obj.transform;
 		}
+
+
+
+
 
 		// 着地
 //		if (contact.x == gameObject.transform.position.x && (contactObject == "StopWall" || contactObject == "Block")) {
