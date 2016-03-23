@@ -11,6 +11,10 @@ public class BlockManager : MonoBehaviour {
 	private bool stopFlg = false;
 	private string[] colorArray = new string[] {"red", "blue", "yellow", "green"};
 
+
+	private GameObject selfGameObject;
+	private GameObject otherGameObject;
+
 	void Start () {
 		Dictionary<string, Color> colroData = new Dictionary<string, Color>();
 		colroData.Add ("red", Color.red);
@@ -54,18 +58,18 @@ public class BlockManager : MonoBehaviour {
 		}
 	}
 
-	string GetContactObject(GameObject otherGameObj) {
-		if (otherGameObj.CompareTag ("StopWall")) {
+	string GetContactObject() {
+		if (otherGameObject.CompareTag ("StopWall")) {
 			return "StopWall";
-		} else if (otherGameObj.CompareTag ("Block")) {
+		} else if (otherGameObject.CompareTag ("Block")) {
 			return "Block";
 		} else {
 			return "";
 		}
 	}
 
-	bool SearchSameColor(GameObject selfObj, GameObject otherObj) {
-		if (selfObj.GetComponent<BlockManager> ().colorTag == otherObj.GetComponent<BlockManager> ().colorTag) {
+	bool SearchSameColor() {
+		if (selfGameObject.GetComponent<BlockManager> ().colorTag == otherGameObject.GetComponent<BlockManager> ().colorTag) {
 			Debug.Log ("同じ色じゃん");
 			return true;
 		} else {
@@ -81,8 +85,36 @@ public class BlockManager : MonoBehaviour {
 			return false;
 		}
 	}
+
+	void CreateParents() {
+		// 同じ色かどうか
+		bool isSameColor = SearchSameColor();
+
+		// 親がいるかどうか
+		bool isParent = SearchParent(selfGameObject);
+		bool isOtherParent = SearchParent(otherGameObject);
+	
+		Debug.Log (isSameColor);
+		Debug.Log (isParent);
+
+
+		// 同じ色で親がいなければ親を作る
+		if (!isSameColor) {
+			return;
+		}
+
+		if ((isParent == false) && (isOtherParent == false)) {
+			GameObject obj = new GameObject();
+			obj.name = "parent";
+			selfGameObject.transform.parent = obj.transform;
+
+		} else if((isParent == false) && isOtherParent) {
+			selfGameObject.transform.parent = otherGameObject.transform.parent;
+		}
+	}
 		
 	/*
+	 * 
 	 * 設計を考えてみる！
 	 * 
 	 * ①１つの時
@@ -107,12 +139,12 @@ public class BlockManager : MonoBehaviour {
 
 
 	void OnCollisionEnter(Collision other) {
-		GameObject selfGameObject = gameObject;
-		GameObject otherGameObj = other.gameObject;
+		selfGameObject = gameObject;
+		otherGameObject = other.gameObject;
 
 		CapsuleCollider Capcol = selfGameObject.GetComponent<Collider>() as CapsuleCollider;
 
-		string contactObject = GetContactObject(otherGameObj);
+		string contactObject = GetContactObject();
 
 		// 止めるかどうか
 		if (contactObject == "StopWall" || contactObject == "Block") {
@@ -124,26 +156,18 @@ public class BlockManager : MonoBehaviour {
 
 		Vector3 contact = other.contacts [0].point;
 		// 接触位置が違っている場合はくっつけない
-		if (contact.x != otherGameObj.transform.position.x) {
+		if (contact.x != otherGameObject.transform.position.x) {
 			return;
 		}
 
-		// 同じ色かどうか
-		bool isSameColor = SearchSameColor(selfGameObject, otherGameObj);
+		CreateParents ();
 
-		// 親がいるかどうか
-		bool isParent = SearchParent(selfGameObject);
-//		bool isOtherParent = SearchParent(selfGameObject, otherGameObj);
 
-		Debug.Log (isSameColor);
-		Debug.Log (isParent);
+		//		bool isOtherParent = SearchParent(selfGameObject, otherGameObj);
 
-		// 同じ色で親がいなければ親を作る
-		if (isSameColor && (isParent == false)) {
-			GameObject obj = new GameObject();
-			obj.name = "parent";
-			selfGameObject.transform.parent = obj.transform;
-		}
+
+
+
 
 
 
