@@ -94,15 +94,11 @@ public class BlockManager : MonoBehaviour {
 		bool isParent = SearchParent(selfGameObject);
 		bool isOtherParent = SearchParent(otherGameObject);
 	
-		Debug.Log (isSameColor);
-		Debug.Log (isParent);
-
-
-		// 同じ色で親がいなければ親を作る
 		if (!isSameColor) {
 			return;
 		}
 
+		// 同じ色で親がいなければ親を作る
 		if ((isParent == false) && (isOtherParent == false)) {
 			GameObject obj = new GameObject();
 			obj.name = "parent";
@@ -110,7 +106,21 @@ public class BlockManager : MonoBehaviour {
 
 		} else if((isParent == false) && isOtherParent) {
 			selfGameObject.transform.parent = otherGameObject.transform.parent;
+		// 両方親がいれば、３個の親を作る
+		} else if (isParent && isOtherParent) {
+
+			// すでに親がparent3だったら消す
+			if (selfGameObject.transform.parent.name == "parent3") {
+				DestroyGameobject(selfGameObject.transform.parent.gameObject);
+			}
+
+			selfGameObject.transform.parent.name = "parent3";
 		}
+	}
+
+	private void DestroyGameobject(GameObject targetGamepbject) {
+		Destroy (targetGamepbject);
+		PointManager.GamePoint += 100;
 	}
 		
 	/*
@@ -154,11 +164,17 @@ public class BlockManager : MonoBehaviour {
 			stopFlg = true;
 		}
 
-		Vector3 contact = other.contacts [0].point;
-		// 接触位置が違っている場合はくっつけない
-		if (contact.x != otherGameObject.transform.position.x) {
+		if (contactObject == "StopWall") {
 			return;
 		}
+
+//		Vector3 contact = other.contacts [0].point;
+//		// 接触位置が違っている場合はくっつけない
+//		if (contact.x != otherGameObject.transform.position.x) {
+//			return;
+//		}
+
+
 
 		CreateParents ();
 
