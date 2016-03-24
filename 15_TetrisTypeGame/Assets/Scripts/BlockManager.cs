@@ -168,6 +168,9 @@ public class BlockManager : MonoBehaviour {
 			return;
 		}
 
+
+
+
 //		Vector3 contact = other.contacts [0].point;
 //		// 接触位置が違っている場合はくっつけない
 //		if (contact.x != otherGameObject.transform.position.x) {
@@ -177,6 +180,11 @@ public class BlockManager : MonoBehaviour {
 
 
 		CreateParents ();
+
+		Debug.Log (Capcol.radius);
+		Capcol.radius = 0.5f;
+		Debug.Log (Capcol.radius);
+
 
 
 		//		bool isOtherParent = SearchParent(selfGameObject, otherGameObj);
