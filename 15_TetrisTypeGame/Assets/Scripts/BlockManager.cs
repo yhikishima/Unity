@@ -155,35 +155,36 @@ public class BlockManager : MonoBehaviour {
 		CapsuleCollider Capcol = selfGameObject.GetComponent<Collider>() as CapsuleCollider;
 
 		string contactObject = GetContactObject();
-
-		// 止めるかどうか
+//
+//		// 止めるかどうか
 		if (contactObject == "StopWall" || contactObject == "Block") {
 			Capcol.attachedRigidbody.useGravity = true;
 			Capcol.attachedRigidbody.constraints = RigidbodyConstraints.None;
 			BlockDropFlg = false;
 			stopFlg = true;
 		}
-
-		if (contactObject == "StopWall") {
-			return;
-		}
-
-
-
-
-//		Vector3 contact = other.contacts [0].point;
-//		// 接触位置が違っている場合はくっつけない
-//		if (contact.x != otherGameObject.transform.position.x) {
+		Debug.Log ("chau");
+//
+//		if (contactObject == "StopWall") {
 //			return;
 //		}
-
-
-
-		CreateParents ();
-
-		Debug.Log (Capcol.radius);
-		Capcol.radius = 0.5f;
-		Debug.Log (Capcol.radius);
+//
+//
+//
+//
+////		Vector3 contact = other.contacts [0].point;
+////		// 接触位置が違っている場合はくっつけない
+////		if (contact.x != otherGameObject.transform.position.x) {
+////			return;
+////		}
+//
+//
+//
+//		CreateParents ();
+//
+//		Debug.Log (Capcol.radius);
+//		Capcol.radius = 0.5f;
+//		Debug.Log (Capcol.radius);
 
 
 
