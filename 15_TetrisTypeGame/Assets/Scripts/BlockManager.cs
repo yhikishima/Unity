@@ -148,7 +148,8 @@ public class BlockManager : MonoBehaviour {
 	*/
 
 
-	void OnCollisionEnter(Collision other) {
+	void OnTriggerEnter(Collider other) {
+		Debug.Log ("いやいや");
 		selfGameObject = gameObject;
 		otherGameObject = other.gameObject;
 
