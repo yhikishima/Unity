@@ -11,7 +11,6 @@ public class BlockManager : MonoBehaviour {
 	private bool stopFlg = false;
 	private string[] colorArray = new string[] {"red", "blue", "yellow", "green"};
 
-
 	private GameObject selfGameObject;
 	private GameObject otherGameObject;
 
@@ -25,7 +24,12 @@ public class BlockManager : MonoBehaviour {
 		string randomColor = colorArray[Random.Range(0, colorArray.Length)];
 
 //		Color randomColor = new Color( Random.value, Random.value, Random.value, 1.0f );
+		float randomVal = Random.value;
+		randomVal = Mathf.Ceil (randomVal * 100);
+
 		gameObject.GetComponent<Renderer>().material.color = colroData[randomColor];
+
+		gameObject.name = randomColor + "Block" + randomVal;
 		colorTag = randomColor;
 
 		InvokeRepeating("dropBlock", 1, 1);
@@ -145,31 +149,57 @@ public class BlockManager : MonoBehaviour {
 	 * ④４つの時
 	 * 　・動いていた側
 	 *     →相手の親オブジェクトが「parent3」ならば「parent3」と自分の親オブジェクトも含めdestroyする
-	*/
+	 * 
+	 * 
+
+	 *     →
+		*/
 
 
-	void OnTriggerEnter(Collider other) {
-		Debug.Log ("いやいや");
+	void OnCollisionEnter(Collision other) {
 		selfGameObject = gameObject;
 		otherGameObject = other.gameObject;
 
 		CapsuleCollider Capcol = selfGameObject.GetComponent<Collider>() as CapsuleCollider;
 
 		string contactObject = GetContactObject();
-//
-//		// 止めるかどうか
-		if (contactObject == "StopWall" || contactObject == "Block") {
-			Capcol.attachedRigidbody.useGravity = true;
-			Capcol.attachedRigidbody.constraints = RigidbodyConstraints.None;
+
+		// 接地位置
+		Vector3 contact = other.contacts [0].point;
+		bool isOtherContactPos = (contact.x != otherGameObject.transform.position.x) ? true : false;
+
+		// 接地面が下の場合は止める
+		if ((contactObject == "Block") && !isOtherContactPos) {
 			BlockDropFlg = false;
 			stopFlg = true;
+
+			CreateParents ();
+
+			return;
 		}
-		Debug.Log ("chau");
+
+		// 接地位置が下でなかったら、抜ける
+		if ((contactObject == "Block") && isOtherContactPos) {
+
+			CreateParents ();
+			return;
+		}
+
+		//
+//		// 止めるかどうか
+		if (contactObject == "StopWall") {
+//			Capcol.attachedRigidbody.useGravity = true;
+//			Capcol.attachedRigidbody.constraints = RigidbodyConstraints.None;
+			BlockDropFlg = false;
+			stopFlg = true;
+
+			return;
+		}
 //
 //		if (contactObject == "StopWall") {
 //			return;
 //		}
-//
+////
 //
 //
 //
@@ -181,7 +211,7 @@ public class BlockManager : MonoBehaviour {
 //
 //
 //
-//		CreateParents ();
+
 //
 //		Debug.Log (Capcol.radius);
 //		Capcol.radius = 0.5f;
