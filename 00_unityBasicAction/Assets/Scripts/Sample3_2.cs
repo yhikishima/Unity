@@ -8,7 +8,7 @@ public class Sample3_2 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Cube1 = GameObject.Find("root/box/target1");
+//		Cube1 = GameObject.Find("root/box/target1");
 
 	}
 }
