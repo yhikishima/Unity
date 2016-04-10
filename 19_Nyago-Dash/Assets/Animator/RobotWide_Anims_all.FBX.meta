@@ -1,0 +1,1184 @@
+fileFormatVersion: 2
+guid: 7964694f403ee6947aa1f17683a4a359
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Bone
+    100002: Bone Head
+    100004: Bone L Calf
+    100006: Bone L Clavicle
+    100008: Bone L Finger0
+    100010: Bone L Foot
+    100012: Bone L Forearm
+    100014: Bone L Hand
+    100016: Bone L Thigh
+    100018: Bone L Toe0
+    100020: Bone L UpperArm
+    100022: Bone Neck
+    100024: Bone Pelvis
+    100026: Bone R Calf
+    100028: Bone R Clavicle
+    100030: Bone R Finger0
+    100032: Bone R Foot
+    100034: Bone R Forearm
+    100036: Bone R Hand
+    100038: Bone R Thigh
+    100040: Bone R Toe0
+    100042: Bone R UpperArm
+    100044: Bone Spine
+    100046: Bone Spine1
+    100048: RobotChomper_mesh
+    100050: //RootNode
+    100052: Bone_spin_01
+    100054: Bone_spin_end
+    100056: BoxRobot_mesh
+    400000: Bone
+    400002: Bone Head
+    400004: Bone L Calf
+    400006: Bone L Clavicle
+    400008: Bone L Finger0
+    400010: Bone L Foot
+    400012: Bone L Forearm
+    400014: Bone L Hand
+    400016: Bone L Thigh
+    400018: Bone L Toe0
+    400020: Bone L UpperArm
+    400022: Bone Neck
+    400024: Bone Pelvis
+    400026: Bone R Calf
+    400028: Bone R Clavicle
+    400030: Bone R Finger0
+    400032: Bone R Foot
+    400034: Bone R Forearm
+    400036: Bone R Hand
+    400038: Bone R Thigh
+    400040: Bone R Toe0
+    400042: Bone R UpperArm
+    400044: Bone Spine
+    400046: Bone Spine1
+    400048: RobotChomper_mesh
+    400050: //RootNode
+    400052: Bone_spin_01
+    400054: Bone_spin_end
+    400056: BoxRobot_mesh
+    4300000: RobotChomper_mesh
+    4300002: BoxRobot_mesh
+    7400000: RWide_Idle
+    7400002: RWide_lookaround
+    7400004: RWide_Walk
+    7400006: RWide_Run
+    7400008: RWide_Hurt
+    7400010: RWide_Die
+    7400012: RWide_Roll
+    7400014: RWide_Skid
+    7400016: RWide_Jump
+    9500000: //RootNode
+    13700000: RobotChomper_mesh
+    13700002: BoxRobot_mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: RWide_Idle
+      takeName: Take 001
+      firstFrame: 20
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone
+        weight: 1
+      - path: Bone/Bone Pelvis
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot/Bone L Toe0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot/Bone R Toe0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand/Bone L Finger0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck/Bone Head
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand/Bone R Finger0
+        weight: 1
+      - path: RobotChomper_mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: RWide_lookaround
+      takeName: Take 001
+      firstFrame: 120
+      lastFrame: 220
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone
+        weight: 1
+      - path: Bone/Bone Pelvis
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot/Bone L Toe0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot/Bone R Toe0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand/Bone L Finger0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck/Bone Head
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand/Bone R Finger0
+        weight: 1
+      - path: RobotChomper_mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: RWide_Walk
+      takeName: Take 001
+      firstFrame: 240
+      lastFrame: 268
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone
+        weight: 1
+      - path: Bone/Bone Pelvis
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot/Bone L Toe0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot/Bone R Toe0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand/Bone L Finger0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck/Bone Head
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand/Bone R Finger0
+        weight: 1
+      - path: RobotChomper_mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: RWide_Run
+      takeName: Take 001
+      firstFrame: 292
+      lastFrame: 310
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone
+        weight: 1
+      - path: Bone/Bone Pelvis
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot/Bone L Toe0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot/Bone R Toe0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand/Bone L Finger0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck/Bone Head
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand/Bone R Finger0
+        weight: 1
+      - path: RobotChomper_mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: RWide_Hurt
+      takeName: Take 001
+      firstFrame: 550
+      lastFrame: 572
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone
+        weight: 1
+      - path: Bone/Bone Pelvis
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot/Bone L Toe0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot/Bone R Toe0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand/Bone L Finger0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck/Bone Head
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand/Bone R Finger0
+        weight: 1
+      - path: RobotChomper_mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: RWide_Die
+      takeName: Take 001
+      firstFrame: 600
+      lastFrame: 625
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone
+        weight: 1
+      - path: Bone/Bone Pelvis
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot/Bone L Toe0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot/Bone R Toe0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand/Bone L Finger0
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck/Bone Head
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand/Bone R Finger0
+        weight: 1
+      - path: RobotChomper_mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: RWide_Roll
+      takeName: Take 001
+      firstFrame: 320
+      lastFrame: 339
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone
+        weight: 1
+      - path: Bone/Bone Pelvis
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot/Bone L Toe0
+        weight: 0
+      - path: Bone/Bone Pelvis/Bone R Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot/Bone R Toe0
+        weight: 0
+      - path: Bone/Bone Pelvis/Bone Spine
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand/Bone L Finger0
+        weight: 0
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck/Bone Head
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand/Bone R Finger0
+        weight: 0
+      - path: RobotChomper_mesh
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: RWide_Skid
+      takeName: Take 001
+      firstFrame: 360
+      lastFrame: 386
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone
+        weight: 1
+      - path: Bone/Bone Pelvis
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot/Bone L Toe0
+        weight: 0
+      - path: Bone/Bone Pelvis/Bone R Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot/Bone R Toe0
+        weight: 0
+      - path: Bone/Bone Pelvis/Bone Spine
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand/Bone L Finger0
+        weight: 0
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck/Bone Head
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand/Bone R Finger0
+        weight: 0
+      - path: RobotChomper_mesh
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: RWide_Jump
+      takeName: Take 001
+      firstFrame: 468
+      lastFrame: 498
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone
+        weight: 1
+      - path: Bone/Bone Pelvis
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone L Thigh/Bone L Calf/Bone L Foot/Bone L Toe0
+        weight: 0
+      - path: Bone/Bone Pelvis/Bone R Thigh
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone R Thigh/Bone R Calf/Bone R Foot/Bone R Toe0
+        weight: 0
+      - path: Bone/Bone Pelvis/Bone Spine
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone L Clavicle/Bone L UpperArm/Bone
+          L Forearm/Bone L Hand/Bone L Finger0
+        weight: 0
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone Neck/Bone Head
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand
+        weight: 1
+      - path: Bone/Bone Pelvis/Bone Spine/Bone Spine1/Bone R Clavicle/Bone R UpperArm/Bone
+          R Forearm/Bone R Hand/Bone R Finger0
+        weight: 0
+      - path: RobotChomper_mesh
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 1
+  humanDescription:
+    human:
+    - boneName: Bone Pelvis
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone L Thigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone L Calf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone L Foot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone L Clavicle
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone R Clavicle
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone L UpperArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone R UpperArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone L Forearm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone R Forearm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone L Hand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone R Hand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone R Thigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone R Calf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone R Foot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Robot_BaseAVATAR_all(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone
+      position: {x: 0, y: .73575753, z: -.00145366904}
+      rotation: {x: -.5, y: .5, z: .5, w: .5}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone Pelvis
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: .504560173, y: -.495397866, z: -.504560173, w: -.495397866}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone L Thigh
+      position: {x: 3.05175774e-07, y: 3.46153968e-07, z: .226679072}
+      rotation: {x: 3.24277565e-08, y: .999958038, z: .00916163716, w: -6.93705147e-07}
+      scale: {x: 1, y: 1.00000012, z: 1.00000012}
+      transformModified: 1
+    - name: Bone L Calf
+      position: {x: -.325824499, y: 0, z: 0}
+      rotation: {x: -2.57088848e-14, y: 8.23877946e-15, z: .0612396412, w: .998123109}
+      scale: {x: .99999994, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone L Foot
+      position: {x: -.251288533, y: 0, z: 0}
+      rotation: {x: 5.79395731e-08, y: -4.95559416e-09, z: -.0612396672, w: .998123109}
+      scale: {x: 1, y: .999999881, z: 1}
+      transformModified: 1
+    - name: Bone L Toe0
+      position: {x: -.137857631, y: .226236001, z: 0}
+      rotation: {x: 2.57601163e-15, y: 2.41900243e-15, z: -.707106829, w: .707106829}
+      scale: {x: .99999994, y: .99999994, z: 1}
+      transformModified: 1
+    - name: Bone R Thigh
+      position: {x: -3.05175774e-07, y: -2.82078986e-07, z: -.226679072}
+      rotation: {x: 3.16294937e-08, y: .999958038, z: .00916297734, w: -7.80933647e-07}
+      scale: {x: 1, y: 1.00000012, z: 1.00000012}
+      transformModified: 1
+    - name: Bone R Calf
+      position: {x: -.325824469, y: -5.96046434e-10, z: 0}
+      rotation: {x: 2.97062518e-14, y: 8.94141023e-15, z: .0612396412, w: .998123109}
+      scale: {x: .99999994, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone R Foot
+      position: {x: -.251288474, y: 0, z: 0}
+      rotation: {x: -6.32932355e-08, y: -8.23031172e-08, z: -.0612396672, w: .998123109}
+      scale: {x: 1, y: .999999881, z: 1}
+      transformModified: 1
+    - name: Bone R Toe0
+      position: {x: -.137857616, y: .226235971, z: -1.90734859e-08}
+      rotation: {x: -8.04526056e-14, y: -8.02955995e-14, z: -.707106829, w: .707106829}
+      scale: {x: .99999994, y: .99999994, z: 1}
+      transformModified: 1
+    - name: Bone Spine
+      position: {x: -.0525688939, y: -.000158181341, z: -2.82630776e-06}
+      rotation: {x: .00916166417, y: 7.10956442e-07, z: -3.01437559e-08, w: .999958038}
+      scale: {x: 1, y: 1.00000012, z: 1.00000012}
+      transformModified: 1
+    - name: Bone Spine1
+      position: {x: -.198728025, y: -.000276365114, z: -1.3760223e-09}
+      rotation: {x: 1.10271822e-06, y: -2.62903939e-08, z: 4.65661572e-08, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone L Clavicle
+      position: {x: -.158773273, y: -.00145184249, z: .163507417}
+      rotation: {x: -.676473439, y: -.000270366669, z: .736466944, w: -.000292291516}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone L UpperArm
+      position: {x: -.234864637, y: -1.49011609e-10, z: 0}
+      rotation: {x: .000397929456, y: .0424217507, z: -1.43613452e-05, w: .999099731}
+      scale: {x: 1, y: .99999994, z: 1}
+      transformModified: 1
+    - name: Bone L Forearm
+      position: {x: -.323723525, y: 0, z: 7.62939436e-08}
+      rotation: {x: 0, y: 0, z: 5.68352806e-14, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone L Hand
+      position: {x: -.245284647, y: 0, z: 0}
+      rotation: {x: -.707106888, y: 1.62889684e-08, z: 2.58642903e-08, w: .707106769}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone L Finger0
+      position: {x: -.269589841, y: 0, z: 0}
+      rotation: {x: -.000398159027, y: -7.29663877e-19, z: -2.90522275e-22, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone Neck
+      position: {x: -.335775763, y: .00624142587, z: -6.51607449e-11}
+      rotation: {x: -7.85303541e-07, y: -1.27028798e-07, z: 1.91566354e-13, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone Head
+      position: {x: -.140052646, y: -.0344628394, z: -3.58770187e-08}
+      rotation: {x: -1.07708422e-06, y: 2.93412739e-07, z: -.105587915, w: .994409978}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone R Clavicle
+      position: {x: -.158773273, y: -.00145093561, z: -.163507417}
+      rotation: {x: .676473439, y: .000268324016, z: .736466944, w: -.00029416781}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone R UpperArm
+      position: {x: -.234864637, y: 5.96046434e-10, z: 0}
+      rotation: {x: -.000397772848, y: -.0424217694, z: -1.80495008e-05, w: .999099731}
+      scale: {x: 1, y: .99999994, z: 1}
+      transformModified: 1
+    - name: Bone R Forearm
+      position: {x: -.323723525, y: 0, z: -7.62939436e-08}
+      rotation: {x: 0, y: 0, z: -6.36508004e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone R Hand
+      position: {x: -.245284647, y: -2.98023217e-10, z: 0}
+      rotation: {x: .707106888, y: -1.6288995e-08, z: 2.58642618e-08, w: .707106769}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone R Finger0
+      position: {x: -.269589841, y: 0, z: -2.98023217e-10}
+      rotation: {x: .000398159027, y: 7.19949467e-19, z: -2.86654408e-22, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone_spin_01
+      position: {x: 0, y: 0, z: 8.37680414e-09}
+      rotation: {x: 3.4908777e-07, y: -3.4908777e-07, z: -.707106829, w: .707106829}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone_spin_end
+      position: {x: -.461497724, y: -6.31808916e-08, z: -2.14652065e-08}
+      rotation: {x: -2.13082192e-15, y: -8.19564008e-08, z: -2.60770321e-08, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: BoxRobot_mesh
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 71a5e9f3e0aac3a45a36b867fb052e0e,
+    type: 3}
+  animationType: 3
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -3,11 +3,12 @@ using System.Collections;
 
 public class Robot : MonoBehaviour {
 	static bool isGoal = false;
+	Animator animator;
 
 	// Use this for initialization
 	void Start () {
 		setAction ();
-	
+		animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -30,6 +31,14 @@ public class Robot : MonoBehaviour {
 			transform.position = new Vector3(transform.position.x, 0f, transform.position.z + 0.1f);
 		} else if (Input.GetKey("left")) {
 			transform.position = new Vector3(transform.position.x, 0f,  transform.position.z - 0.1f);
+		}
+
+		// Animation
+		if (Input.GetKeyDown("space")) {
+			animator.SetBool("Jump", true);
+		}
+		if (Input.GetKeyUp("space")) {
+			animator.SetBool("Jump", false);
 		}
 	}
 }
