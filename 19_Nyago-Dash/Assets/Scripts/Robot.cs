@@ -2,7 +2,10 @@
 using System.Collections;
 
 public class Robot : MonoBehaviour {
-	static bool isGoal = false;
+	public bool isGoal = false;
+	public bool isDie = false;
+
+	public float speed = 0.1f;
 	Animator animator;
 
 	// Use this for initialization
@@ -18,8 +21,8 @@ public class Robot : MonoBehaviour {
 	}
 
 	private void walkForward() {
-		if (!isGoal) {
-			transform.position = new Vector3(transform.position.x - 0.1f, 0f, transform.position.z);			
+		if (!isGoal && !isDie) {
+			transform.position = new Vector3(transform.position.x - speed, 0f, transform.position.z);			
 		}
 	}
 
