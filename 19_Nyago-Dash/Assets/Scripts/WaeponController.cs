@@ -24,8 +24,11 @@ public class WaeponController : MonoBehaviour {
 	}
 
 	private void FireSpear() {
+		GameObject spearObj = GameObject.FindWithTag ("spear");
+		if (spearObj) {
+			Invoke("DestorySpear(spearObj)", 2);
+		}
 
-//		GameObject Nyago = GameObject.FindWithTag ("Player");
 		spearObj = Instantiate(spear) as GameObject;
 
 		GameObject weapons = GameObject.FindWithTag ("waepons");
@@ -44,5 +47,9 @@ public class WaeponController : MonoBehaviour {
 			}
 		}
 		return vecPosX;
+	}
+
+	private void DestorySpear(GameObject spearObj) {
+		Destroy (spearObj);
 	}
 }

@@ -3,26 +3,62 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class TimerController : MonoBehaviour {
-	GameObject SecondObj;
+	Text secondText;
+	Text pointText;
+	Text minutesText;
 
 	// Use this for initialization
 	void Start () {
-		SecondObj = transform.FindChild ("Second").gameObject;	
+		GameObject MinutesObj = transform.FindChild ("Minutes").gameObject;
+		GameObject SecondObj = transform.FindChild ("Second").gameObject;
+		GameObject PointObj = transform.FindChild ("Point").gameObject;
+		minutesText = MinutesObj.GetComponent<Text> ();
+		secondText = SecondObj.GetComponent<Text> ();
+		pointText = PointObj.GetComponent<Text> ();
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		SetTime ();
+	}
+
+	private void SetTime() {
 		float currentTime = Time.time;
 
-		float displayTime = Mathf.Floor (currentTime * 100);
+		float second = Mathf.Floor (currentTime);
+		float point = Mathf.Floor ((currentTime - second) * 100);
 
-		float Second = Mathf.Floor (currentTime);
-		Text secondText = SecondObj.GetComponent<Text> ();
-		if (Second < 10) {
-			secondText.text = "0" + (Second).ToString();
+		if (second < 10) {
+			secondText.text = "0" + (second).ToString ();
+
+		} else if (second < 60) {
+			secondText.text = (second).ToString ();
+
+		// 分の設定
 		} else {
-			secondText.text = (Second).ToString();			
+			float minutes = Mathf.Floor (second / 60);
+			second = Mathf.Floor(((second / 60) - minutes) * 100);
+
+			if (minutes < 10) {
+				minutesText.text = "0" + (minutes).ToString ();
+			} else {
+				minutesText.text = (minutes).ToString ();
+			}
+
+			if (second < 10) {
+				secondText.text = "0" + (second).ToString ();
+			} else {
+				secondText.text = (second).ToString ();
+			}
 		}
 
-	}
+		// ミリ秒設定
+		if (point < 10) {
+			pointText.text = "0" + (point).ToString();
+		} else {
+			pointText.text = (point).ToString();			
+		}
+
+	} 
 }
