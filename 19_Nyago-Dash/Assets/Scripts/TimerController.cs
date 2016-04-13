@@ -7,6 +7,11 @@ public class TimerController : MonoBehaviour {
 	Text pointText;
 	Text minutesText;
 
+	GameObject Nyago;
+	Robot robot;
+
+	bool timeStop = false;
+
 	// Use this for initialization
 	void Start () {
 		GameObject MinutesObj = transform.FindChild ("Minutes").gameObject;
@@ -15,12 +20,16 @@ public class TimerController : MonoBehaviour {
 		minutesText = MinutesObj.GetComponent<Text> ();
 		secondText = SecondObj.GetComponent<Text> ();
 		pointText = PointObj.GetComponent<Text> ();
-	
+
+		Nyago = GameObject.FindWithTag ("Player");
+		robot = Nyago.GetComponent<Robot>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		SetTime ();
+		if (!timeStop) {
+			SetTime ();
+		}
 	}
 
 	private void SetTime() {
@@ -60,5 +69,8 @@ public class TimerController : MonoBehaviour {
 			pointText.text = (point).ToString();			
 		}
 
-	} 
+		if (robot.isDie) {
+			timeStop = true;
+		}
+	}
 }

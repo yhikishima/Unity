@@ -47,8 +47,10 @@
   <ItemGroup>
      <Compile Include="Assets\Resources\The_Robots\Orbit Camera\Scripts\maxCamera.cs" />
      <Compile Include="Assets\Scripts\Camera.cs" />
+     <Compile Include="Assets\Scripts\EndController.cs" />
      <Compile Include="Assets\Scripts\GroundController.cs" />
      <Compile Include="Assets\Scripts\Robot.cs" />
+     <Compile Include="Assets\Scripts\StartController.cs" />
      <Compile Include="Assets\Scripts\TimerController.cs" />
      <Compile Include="Assets\Scripts\WaeponAttack.cs" />
      <Compile Include="Assets\Scripts\WaeponController.cs" />

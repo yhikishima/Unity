@@ -7,17 +7,21 @@ public class Robot : MonoBehaviour {
 
 	public float speed = 0.1f;
 	Animator animator;
+	StartController start;
 
 	// Use this for initialization
 	void Start () {
-		setAction ();
 		animator = GetComponent<Animator>();
+		GameObject StartObj = GameObject.FindWithTag ("start");
+		start = StartObj.GetComponent<StartController> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		walkForward ();
-		setAction ();
+		if (start.isStart) {
+			walkForward ();
+			setAction ();			
+		}
 	}
 
 	private void walkForward() {
