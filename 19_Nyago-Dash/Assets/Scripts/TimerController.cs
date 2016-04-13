@@ -10,6 +10,8 @@ public class TimerController : MonoBehaviour {
 	GameObject Nyago;
 	Robot robot;
 
+	StartController start;
+
 	bool timeStop = false;
 
 	// Use this for initialization
@@ -23,11 +25,14 @@ public class TimerController : MonoBehaviour {
 
 		Nyago = GameObject.FindWithTag ("Player");
 		robot = Nyago.GetComponent<Robot>();
+
+		GameObject StartObj = GameObject.FindWithTag ("start");
+		start = StartObj.GetComponent<StartController> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (!timeStop) {
+		if (!timeStop && start.isStart) {
 			SetTime ();
 		}
 	}

@@ -47,5 +47,8 @@ public class Robot : MonoBehaviour {
 		if (Input.GetKeyUp("space")) {
 			animator.SetBool("Jump", false);
 		}
+		if (start.isStart) {
+			animator.SetBool("Run", true);
+		}
 	}
 }

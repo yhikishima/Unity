@@ -13,13 +13,13 @@ public class EndController : MonoBehaviour {
 		Nyago = GameObject.FindWithTag ("Player");
 		robot = Nyago.GetComponent<Robot>();
 		render = GetComponent<Renderer>();
-		End.SetActive(false);
+//		End.SetActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (robot.isDie) {
-			End.SetActive(true);
+//			End.SetActive(true);	
 		}
 	}
 }
