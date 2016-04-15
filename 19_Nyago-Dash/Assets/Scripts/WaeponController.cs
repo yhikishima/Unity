@@ -6,12 +6,16 @@ public class WaeponController : MonoBehaviour {
 
 	private GameObject spearObj;
 	private GameObject[] groundLists;
+	private GameObject Nyago;
+	private Robot robot;
 
 	private float speed = 1.0f;
 	private float waitingTime = 3.0f;
 
 	// Use this for initialization
 	void Start () {
+		Nyago = GameObject.FindWithTag ("Player");
+		robot = Nyago.GetComponent<Robot>();
 		InvokeRepeating("FireSpear", waitingTime, waitingTime);
 	}
 
@@ -24,6 +28,10 @@ public class WaeponController : MonoBehaviour {
 	}
 
 	private void FireSpear() {
+		if (robot.isDie) {
+			return;
+		}
+
 		GameObject spearObj = GameObject.FindWithTag ("spear");
 		if (spearObj) {
 			Invoke("DestorySpear(spearObj)", 2);
