@@ -19,9 +19,9 @@ public class WaeponAttack : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter(Collision collision) {
-		if (collision.transform.CompareTag("Player")) {
-			animator.SetBool("Die", true);
-			robot.isDie = true;
-		}		
+		if (collision.transform.CompareTag ("Player")) {
+			Application.LoadLevel("Main"); // シーンの名前かインデックスを指定
+			robot.ToEnd ();
+		}
 	}
 }

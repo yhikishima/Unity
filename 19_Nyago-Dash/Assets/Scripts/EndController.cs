@@ -23,6 +23,7 @@ public class EndController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		robot = Nyago.GetComponent<Robot>();
 		if (robot.isDie) {
 			Invoke ("CloseBlock", 3);
 		}
@@ -68,7 +69,6 @@ public class EndController : MonoBehaviour {
 	}
 
 	public void StartClick() {
-		openStart = true;
-		robot.isDie = false;
+		robot.ToStart ();
 	}
 }

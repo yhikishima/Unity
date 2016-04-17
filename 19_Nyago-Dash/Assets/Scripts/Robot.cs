@@ -19,18 +19,18 @@ public class Robot : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (start.isStart) {
-			walkForward ();
-			setAction ();			
+			WalkForward ();
+			SetAction ();			
 		}
 	}
 
-	private void walkForward() {
+	private void WalkForward() {
 		if (!isGoal && !isDie) {
 			transform.position = new Vector3(transform.position.x - speed, 0f, transform.position.z);			
 		}
 	}
 
-	private void setAction() {
+	private void SetAction() {
 		// PC向け、キー入力
 		if (Input.GetKey("up")) {
 //			transform.position = new Vector3(transform.position.x - 0.1f, 0f, transform.position.z);
@@ -50,5 +50,15 @@ public class Robot : MonoBehaviour {
 		if (start.isStart) {
 			animator.SetBool("Run", true);
 		}
+	}
+
+	public void ToStart() {
+		animator.SetBool("Die", false);
+		isDie = false;
+	}
+
+	public void ToEnd() {
+		animator.SetBool("Die", true);
+		isDie = true;
 	}
 }
