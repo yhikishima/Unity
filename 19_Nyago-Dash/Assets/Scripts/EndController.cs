@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class EndController : MonoBehaviour {
 	private GameObject Nyago;
@@ -29,7 +30,7 @@ public class EndController : MonoBehaviour {
 	void Update () {
 		robot = Nyago.GetComponent<Robot>();
 		if (robot.isDie) {
-			Invoke ("CloseBlock", 3);
+			Invoke ("CloseBlock", 1);
 		}
 
 		if (openStart) {
@@ -44,7 +45,7 @@ public class EndController : MonoBehaviour {
 		}
 
 		if (pos.y > 300 + blockTop) {
-			pos.y -= 1f;
+			pos.y -= 2f;
 		} else if (pos.y > 200 + blockTop) {
 			pos.y -= 10f;
 		} else if (pos.y > blockTop) {
@@ -73,6 +74,8 @@ public class EndController : MonoBehaviour {
 	}
 
 	public void StartClick() {
-		robot.ToStart ();
+//		robot.ToStart ();
+		SceneManager.LoadScene("Main"); // シーンの名前かインデックスを指定
+		start.openStart = true;
 	}
 }

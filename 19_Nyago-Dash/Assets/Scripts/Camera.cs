@@ -9,7 +9,7 @@ public class Camera : MonoBehaviour {
 	void Start () {
 		FollowRobot ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		// 自分の座標にtargetの座標を代入する + デフォルトの相対座標

@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class WaeponAttack : MonoBehaviour {
 	Animator animator;
 	GameObject Nyago;
 	Robot robot;
+	WaeponController waeponController;
 
 	// Use this for initialization
 	void Start () {
 		Nyago = GameObject.FindWithTag ("Player");
 		animator = Nyago.GetComponent<Animator>();
 		robot = Nyago.GetComponent<Robot>();
+
+		GameObject Weapons = GameObject.FindWithTag ("weapons");
+		waeponController = Weapons.GetComponent<WaeponController>();
 	}
 	
 	// Update is called once per frame
@@ -21,8 +24,8 @@ public class WaeponAttack : MonoBehaviour {
 
 	private void OnCollisionEnter(Collision collision) {
 		if (collision.transform.CompareTag ("Player")) {
-			SceneManager.LoadScene("Main"); // シーンの名前かインデックスを指定
 			robot.ToEnd ();
+			waeponController.DestroyAllSpear ();
 		}
 	}
 }

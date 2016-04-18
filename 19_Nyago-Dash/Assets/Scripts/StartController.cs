@@ -3,7 +3,7 @@ using System.Collections;
 
 public class StartController : MonoBehaviour {
 	public bool isStart = false;
-	private bool openStart = false;
+	public bool openStart = false;
 
 	// Use this for initialization
 	void Start () {

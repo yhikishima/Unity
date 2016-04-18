@@ -5,9 +5,12 @@ public class WaeponController : MonoBehaviour {
 	public GameObject spear;
 
 	private GameObject spearObj;
+	private GameObject weapons;
 	private GameObject[] groundLists;
 	private GameObject Nyago;
 	private Robot robot;
+
+	private StartController start;
 
 	private float speed = 1.0f;
 	private float waitingTime = 3.0f;
@@ -16,6 +19,10 @@ public class WaeponController : MonoBehaviour {
 	void Start () {
 		Nyago = GameObject.FindWithTag ("Player");
 		robot = Nyago.GetComponent<Robot>();
+		GameObject StartObj = GameObject.FindWithTag ("start");
+		start = StartObj.GetComponent<StartController> ();
+
+
 		InvokeRepeating("FireSpear", waitingTime, waitingTime);
 	}
 
@@ -32,6 +39,10 @@ public class WaeponController : MonoBehaviour {
 			return;
 		}
 
+		if (!start.isStart) {
+			return;
+		}
+
 		GameObject spearObj = GameObject.FindWithTag ("spear");
 		if (spearObj) {
 			Invoke("DestorySpear(spearObj)", 2);
@@ -39,7 +50,7 @@ public class WaeponController : MonoBehaviour {
 
 		spearObj = Instantiate(spear) as GameObject;
 
-		GameObject weapons = GameObject.FindWithTag ("waepons");
+		weapons = GameObject.FindWithTag ("weapons");
 		Vector3 tempSpear = spearObj.transform.position;
 		tempSpear.x = GetGroundPosition ();
 		spearObj.transform.position = tempSpear;
@@ -59,5 +70,17 @@ public class WaeponController : MonoBehaviour {
 
 	private void DestorySpear(GameObject spearObj) {
 		Destroy (spearObj);
+	}
+
+	public void DestroyAllSpear() {
+		if (!weapons) {
+			return;
+		}
+
+		Transform[] children = weapons.GetComponentsInChildren<Transform>();
+		foreach(Transform t in children) {
+			GameObject ga = t.gameObject;
+			Destroy (ga);
+		}
 	}
 }
