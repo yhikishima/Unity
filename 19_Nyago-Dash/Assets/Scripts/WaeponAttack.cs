@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class WaeponAttack : MonoBehaviour {
 	Animator animator;
@@ -20,7 +21,7 @@ public class WaeponAttack : MonoBehaviour {
 
 	private void OnCollisionEnter(Collision collision) {
 		if (collision.transform.CompareTag ("Player")) {
-			Application.LoadLevel("Main"); // シーンの名前かインデックスを指定
+			SceneManager.LoadScene("Main"); // シーンの名前かインデックスを指定
 			robot.ToEnd ();
 		}
 	}

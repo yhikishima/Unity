@@ -9,6 +9,10 @@ public class EndController : MonoBehaviour {
 
 	const float blockTop = 172;
 
+	void Awake () {
+		DontDestroyOnLoad(this); // シーン読み込みの際に破棄されなくなる
+	}
+
 	// Use this for initialization
 	void Start () {
 //		End = GameObject.FindWithTag("end");
