@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\TimerController.cs" />
      <Compile Include="Assets\Scripts\WaeponAttack.cs" />
      <Compile Include="Assets\Scripts\WaeponController.cs" />
+     <Compile Include="Assets\VSCode.cs" />
      <None Include="Assets\Resources\The_Robots\Materials\Shaders\RimMetal.shader" />
      <None Include="Assets\Resources\Stone Age Weapons Pack\Readme.txt" />
  <Reference Include="UnityEngine.UI">

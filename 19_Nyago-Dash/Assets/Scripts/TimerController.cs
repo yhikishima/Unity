@@ -29,7 +29,7 @@ public class TimerController : MonoBehaviour {
 		GameObject StartObj = GameObject.FindWithTag ("start");
 		start = StartObj.GetComponent<StartController> ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (!timeStop && start.isStart) {
@@ -71,7 +71,7 @@ public class TimerController : MonoBehaviour {
 		if (point < 10) {
 			pointText.text = "0" + (point).ToString();
 		} else {
-			pointText.text = (point).ToString();			
+			pointText.text = (point).ToString();
 		}
 
 		if (robot.isDie) {
