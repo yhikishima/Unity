@@ -13,6 +13,7 @@ public class TimerController : MonoBehaviour {
 	StartController start;
 
 	bool timeStop = false;
+	float startTime;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +29,7 @@ public class TimerController : MonoBehaviour {
 
 		GameObject StartObj = GameObject.FindWithTag ("start");
 		start = StartObj.GetComponent<StartController> ();
+		startTime = Time.time;
 	}
 
 	// Update is called once per frame
@@ -36,9 +38,14 @@ public class TimerController : MonoBehaviour {
 			SetTime ();
 		}
 	}
+	
+	public void SetStartTime() {
+		startTime = Time.time;
+	}
 
 	private void SetTime() {
 		float currentTime = Time.time;
+		currentTime = currentTime - startTime;
 
 		float second = Mathf.Floor (currentTime);
 		float point = Mathf.Floor ((currentTime - second) * 100);

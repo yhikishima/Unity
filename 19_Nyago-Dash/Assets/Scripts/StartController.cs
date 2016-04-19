@@ -4,10 +4,13 @@ using System.Collections;
 public class StartController : MonoBehaviour {
 	public bool isStart = false;
 	public bool openStart = false;
+	
+	TimerController timer;
 
 	// Use this for initialization
 	void Start () {
-	
+				GameObject TimerObj = GameObject.FindWithTag ("timer");
+				timer = TimerObj.GetComponent<TimerController>();
 	}
 	
 	// Update is called once per frame
@@ -32,6 +35,7 @@ public class StartController : MonoBehaviour {
 	}
 
 	public void StartClick() {
+		timer.SetStartTime();
 		openStart = true;
 	}
 }
