@@ -23,19 +23,18 @@ public class Robot : MonoBehaviour {
 		if (start.isStart) {
 			if (!walkingFlg) {
 				// 初めの一回だけ、遅らせたい
-				Invoke ("WalkForward", 2);
-				walkingFlg = true;
+				Invoke ("WalkForward", 1);
 			} else {
 				WalkForward();
 			}
-
 			SetAction ();
 		}
 	}
 
 	private void WalkForward() {
 		if (!isGoal && !isDie) {
-			transform.position = new Vector3(transform.position.x - speed, 0f, transform.position.z);			
+			walkingFlg = true;
+			transform.position = new Vector3(transform.position.x - speed, 0f, transform.position.z);
 		}
 	}
 
