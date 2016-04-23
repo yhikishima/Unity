@@ -109,7 +109,7 @@
      <None Include="Assets\Resources\SciFi level\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\TwirlEffect.shader" />
      <None Include="Assets\Resources\SciFi level\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\VortexEffect.shader" />
      <None Include="Assets\Resources\SciFi level\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\Adaptation.shader" />
-     <None Include="Assets\The_Robots\Materials\Shaders\RimMetal.shader" />
+     <None Include="Assets\Resources\The_Robots\Materials\Shaders\RimMetal.shader" />
      <None Include="Assets\Resources\SciFi level\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseAndGrain.shader" />
      <None Include="Assets\Resources\SciFi level\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\VignettingShader.shader" />
      <None Include="Assets\Resources\SciFi level\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Tonemapper.shader" />
