@@ -1,6 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
+/*
+* イメージ
+* ranking = [
+*   {no, name, time},
+*   {no, name, time}
+* ];
+*/
+
 public class Score : MonoBehaviour {
   public int score = 0;
   private string RANKING_PREF_KEY = "ranking";
@@ -12,16 +20,21 @@ public class Score : MonoBehaviour {
       Debug.Log(val);
     }
   }
+  void Start() {
+    int score = dealScore;
+    Debug.Log(score);
+  }
+
   void Update() {
     
   }
 
-  public int dealScore {
+  public float[] dealScore {
     get {
-      return score;
+      return PlayerPrefs.GetFloat(RANKING_PREF_KEY);
     }
     set {
-      PlayerPrefs.SetInt("score", score);
+      PlayerPrefs.SetFloat(RANKING_PREF_KEY, ranking);
     }
   }
   
