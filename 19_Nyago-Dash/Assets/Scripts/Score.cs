@@ -1,40 +1,62 @@
 using UnityEngine;
 using System.Collections;
+using System.Text;
+using System.Collections.Generic;
 
 /*
 * イメージ
 * ranking = [
-*   {no, name, time},
-*   {no, name, time}
+*   {no, time},
+*   {no, time}
 * ];
 */
 
 public class Score : MonoBehaviour {
   public int score = 0;
   private string RANKING_PREF_KEY = "ranking";
-  private float[] ranking = new float[10];
+  private float[] rankingArray = new float[10];
 
   void Awake() {
-    score = PlayerPrefs.GetInt(RANKING_PREF_KEY, 0);
-    foreach(float val in ranking) {
-      Debug.Log(val);
-    }
+    // ranking = [
+    //   {"no": 1, "name": "aiu", time: 10}
+    // ];
+    // score = PlayerPrefs.GetInt(RANKING_PREF_KEY, );
+    // foreach(float val in ranking) {
+    //   Debug.Log(val);
+    // }
   }
   void Start() {
-    int score = dealScore;
+    string[] score = dealScore;
     Debug.Log(score);
+    
+    rankingArray[0] = 10.5f;
+    rankingArray[1] = 8.5f;
+    rankingArray[2] = 12.5f;
+    
+    Debug.Log(rankingArray[0]);
+    Debug.Log(rankingArray[1]);
+    Debug.Log(rankingArray[2]);
+
   }
 
   void Update() {
     
   }
 
-  public float[] dealScore {
+  public string[] dealScore {
     get {
-      return PlayerPrefs.GetFloat(RANKING_PREF_KEY);
+      string _ranking = PlayerPrefs.GetString(RANKING_PREF_KEY);
+      string[] rankSplit = _ranking.Split(',');
+      return rankSplit;
     }
     set {
-      PlayerPrefs.SetFloat(RANKING_PREF_KEY, ranking);
+      var builder = new StringBuilder();
+      foreach(float rank in rankingArray) {
+        string rankTemp = rank.ToString();
+        builder.Append(rankTemp);
+      }
+      //  = string.Join(",", rankingArray.ToString());
+      // PlayerPrefs.SetString(RANKING_PREF_KEY, rankingString);
     }
   }
   
