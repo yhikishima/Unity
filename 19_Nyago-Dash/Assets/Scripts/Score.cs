@@ -14,7 +14,9 @@ using System.Collections.Generic;
 public class Score : MonoBehaviour {
   public int score = 0;
   private string RANKING_PREF_KEY = "ranking";
-  private float[] rankingArray = new float[10];
+  private float[] rankingArray = new float[5];
+  private GameObject scoreObj;
+  private GameObject[] rankObj;
 
   void Awake() {
     // ranking = [
@@ -26,8 +28,8 @@ public class Score : MonoBehaviour {
     // }
   }
   void Start() {
-    string[] score = dealScore;
-    Debug.Log(score);
+		scoreObj = GameObject.FindWithTag ("score");
+    rankObj = GameObject.FindGameObjectsWithTag("rank");
     
     rankingArray[0] = 10.5f;
     rankingArray[1] = 8.5f;
@@ -36,48 +38,42 @@ public class Score : MonoBehaviour {
     Debug.Log(rankingArray[0]);
     Debug.Log(rankingArray[1]);
     Debug.Log(rankingArray[2]);
-
+    
+    setRanking();
+    var tmp = getRanking();
+    Debug.Log(tmp[0]);
+    Debug.Log(tmp[1]);
+    
+    setScoreBoard();
   }
 
   void Update() {
     
-  }
-
-  public string[] dealScore {
-    get {
-      string _ranking = PlayerPrefs.GetString(RANKING_PREF_KEY);
-      string[] rankSplit = _ranking.Split(',');
-      return rankSplit;
-    }
-    set {
-      var builder = new StringBuilder();
-      foreach(float rank in rankingArray) {
-        string rankTemp = rank.ToString();
-        builder.Append(rankTemp);
-      }
-      //  = string.Join(",", rankingArray.ToString());
-      // PlayerPrefs.SetString(RANKING_PREF_KEY, rankingString);
-    }
+  
   }
   
-  public void getRanking() {
-    // float[] _ranking = PlayerPrefs.GetString(RANKING_PREF_KEY);
-    // if (_ranking.length > 0) {
+  private void setScoreBoard() {
+    for(int i = 0; i < rankingArray.Length; i++) {
+      GameObject time = rankObj[i].transform.FindChild("time").gameObject;
       
-    // }
+      // time.GetComponent<GUIText>().text = "aaa";
+    }
   }
   
-  public void setRanking(float newScore) {
-    // float tmp = 0f;
-    // var ranking = ranking;
-    // if (ranking) {
-
-    // } else {
-    //   ranking[0] = newScore;
-    // }
-    
-    // string[] rankingArray = ranking
-    // PlayerPrefs.SetString(RANKING_PREF_KEY, rankingArray);
+  public string[] getRanking() {
+    string _ranking = PlayerPrefs.GetString(RANKING_PREF_KEY);
+    string[] rankSplit = _ranking.Split(',');
+    return rankSplit;
+  }
+  
+  public void setRanking() {
+    var builder = new StringBuilder();
+    foreach(float rank in rankingArray) {
+      string rankTemp = rank.ToString();
+      builder.Append(rankTemp + ",");
+    }
+    //  = string.Join(",", rankingArray.ToString());
+    PlayerPrefs.SetString(RANKING_PREF_KEY, builder.ToString());
   }
   
   public void deleteScore() {
