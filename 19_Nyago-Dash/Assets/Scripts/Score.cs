@@ -54,8 +54,14 @@ public class Score : MonoBehaviour {
   
   private void setScoreBoard() {
     for(int i = 0; i < rankingArray.Length; i++) {
+      Debug.Log(rankObj[i]);
       GameObject time = rankObj[i].transform.FindChild("time").gameObject;
       
+      string[] no = rankObj[i].name.Split("Rank"[3]);
+      int number = int.Parse(no[1]);
+
+      Debug.Log(time);
+      // time.GetComponent<GUIText>().text = ;
       // time.GetComponent<GUIText>().text = "aaa";
     }
   }
