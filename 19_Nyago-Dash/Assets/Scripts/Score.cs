@@ -1,22 +1,19 @@
 using UnityEngine;
 using System.Collections;
 using System.Text;
+using System;
+using UnityEngine.UI;
 using System.Collections.Generic;
-
-/*
-* イメージ
-* ranking = [
-*   {no, time},
-*   {no, time}
-* ];
-*/
 
 public class Score : MonoBehaviour {
   public int score = 0;
   private string RANKING_PREF_KEY = "ranking";
-  private float[] rankingArray = new float[5];
+  private List<string> rankingArray = new List<string>();
   private GameObject scoreObj;
   private GameObject[] rankObj;
+
+	private Robot robot;
+  private TimerController timer;
 
   void Awake() {
     // ranking = [
@@ -30,55 +27,111 @@ public class Score : MonoBehaviour {
   void Start() {
 		scoreObj = GameObject.FindWithTag ("score");
     rankObj = GameObject.FindGameObjectsWithTag("rank");
+
+    GameObject TimerObj = GameObject.FindWithTag ("timer");
+    timer = TimerObj.GetComponent<TimerController>();
+
+		GameObject Nyago = GameObject.FindWithTag ("Player");
+		robot = Nyago.GetComponent<Robot>();
     
-    rankingArray[0] = 10.5f;
-    rankingArray[1] = 8.5f;
-    rankingArray[2] = 12.5f;
     
-    Debug.Log(rankingArray[0]);
-    Debug.Log(rankingArray[1]);
-    Debug.Log(rankingArray[2]);
-    
-    setRanking();
-    var tmp = getRanking();
-    Debug.Log(tmp[0]);
-    Debug.Log(tmp[1]);
+    // default設定
+    // foreach(GameObject rank in rankObj) {
+    //   rankingArray.Add("00:00");      
+    // }
+
+    // rankingArray.Sort();
+    // setRanking();
+    rankingArray.Clear();
+    rankingArray = getRanking();
     
     setScoreBoard();
   }
 
   void Update() {
     
-  
   }
   
-  private void setScoreBoard() {
-    for(int i = 0; i < rankingArray.Length; i++) {
-      Debug.Log(rankObj[i]);
+  void FixedUpdate() {
+		if (robot.isDie) {
+      Debug.Log("die");
+      float[] currentTimes = timer.GetCurrentTime();
+      compareRanking(currentTimes);
+    }
+  }
+  
+  private void compareRanking(float[] times) {
+    float minutes;
+    float second;
+    float point;
+    rankingArray = getRanking();
+
+    foreach(string rank in rankingArray) {
+      string[] ranks = rank.Split(":"[0]);
+      // 分、秒、ミリ秒が設定されている
+      if (ranks.Length > 1) {
+        second = float.Parse(ranks[0]);
+        point = float.Parse(ranks[1]);
+      // 秒、ミリ秒が設定されている
+      } else {
+        minutes = float.Parse(ranks[0]);
+        second = float.Parse(ranks[1]);
+        point = float.Parse(ranks[2]);
+      }
+
+     // 分、秒、ミリ秒が設定されている
+      if (rankingArray.Count > 1) {
+        
+      // 秒、ミリ秒が設定されている
+      } else {
+        if (minutes > rankingArray[0]) {
+                    
+        }
+      }
+    }
+  }
+  
+  void setScoreBoard() {
+    for(int i = 0; i < rankingArray.Count; i++) {
       GameObject time = rankObj[i].transform.FindChild("time").gameObject;
       
       string[] no = rankObj[i].name.Split("Rank"[3]);
       int number = int.Parse(no[1]);
 
-      Debug.Log(time);
-      // time.GetComponent<GUIText>().text = ;
+      time.GetComponent<Text>().text = (rankingArray[i]).ToString();
       // time.GetComponent<GUIText>().text = "aaa";
     }
   }
   
-  public string[] getRanking() {
+  public List<string> getRanking() {
     string _ranking = PlayerPrefs.GetString(RANKING_PREF_KEY);
-    string[] rankSplit = _ranking.Split(',');
-    return rankSplit;
+    List<string> rankStrings = new List<string>();
+    
+    if (string.IsNullOrEmpty(_ranking)) {
+      foreach(GameObject rank in rankObj) {
+        rankStrings.Add("00:00");      
+      }
+
+      return rankStrings;
+    } else {
+      string[] rankSplit = _ranking.Split(',');
+      foreach(string r in rankSplit) {
+        if (string.IsNullOrEmpty(r)) {
+          rankStrings.Add("00:00");
+        } else {
+          rankStrings.Add(r);
+        }
+      }
+
+      return rankStrings;
+    }
   }
   
   public void setRanking() {
     var builder = new StringBuilder();
-    foreach(float rank in rankingArray) {
-      string rankTemp = rank.ToString();
-      builder.Append(rankTemp + ",");
+    foreach(string rank in rankingArray) {
+      builder.Append(rank + ",");
     }
-    //  = string.Join(",", rankingArray.ToString());
     PlayerPrefs.SetString(RANKING_PREF_KEY, builder.ToString());
   }
   

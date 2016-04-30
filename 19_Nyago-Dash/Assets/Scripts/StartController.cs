@@ -9,8 +9,8 @@ public class StartController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-				GameObject TimerObj = GameObject.FindWithTag ("timer");
-				timer = TimerObj.GetComponent<TimerController>();
+			GameObject TimerObj = GameObject.FindWithTag ("timer");
+			timer = TimerObj.GetComponent<TimerController>();
 	}
 	
 	// Update is called once per frame

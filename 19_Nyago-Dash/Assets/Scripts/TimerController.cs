@@ -3,9 +3,13 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class TimerController : MonoBehaviour {
-	Text secondText;
-	Text pointText;
-	Text minutesText;
+	private Text secondText;
+	private Text pointText;
+	private Text minutesText;
+	
+	private float minutes;
+	private float second;
+	private float point;
 
 	GameObject Nyago;
 	Robot robot;
@@ -42,13 +46,19 @@ public class TimerController : MonoBehaviour {
 	public void SetStartTime() {
 		startTime = Time.time;
 	}
+	
+	public float[] GetCurrentTime() {
+		float[] timeArray = new float[3]{minutes, second, point};
+
+		return timeArray;
+	}
 
 	private void SetTime() {
 		float currentTime = Time.time;
 		currentTime = currentTime - startTime;
 
-		float second = Mathf.Floor (currentTime);
-		float point = Mathf.Floor ((currentTime - second) * 100);
+		second = Mathf.Floor (currentTime);
+		point = Mathf.Floor ((currentTime - second) * 100);
 
 		if (second < 10) {
 			secondText.text = "0" + (second).ToString ();
@@ -58,7 +68,7 @@ public class TimerController : MonoBehaviour {
 
 		// 分の設定
 		} else {
-			float minutes = Mathf.Floor (second / 60);
+			minutes = Mathf.Floor (second / 60);
 			second = Mathf.Floor(((second / 60) - minutes) * 100);
 
 			if (minutes < 10) {
