@@ -44,6 +44,12 @@ public class Score : MonoBehaviour {
     // setRanking();
     rankingArray.Clear();
     rankingArray = getRanking();
+
+    foreach(GameObject rank in rankObj) {
+      rankingArray.Add("00:00");      
+    }
+    
+    setRanking();
     
     setScoreBoard();
   }
@@ -59,15 +65,20 @@ public class Score : MonoBehaviour {
       compareRanking(currentTimes);
     }
   }
-  
-  private void compareRanking(float[] times) {
-    float minutes;
-    float second;
-    float point;
-    rankingArray = getRanking();
 
-    foreach(string rank in rankingArray) {
-      string[] ranks = rank.Split(":"[0]);
+
+  /*
+  goalTimes = [currentMin, currentSecond, currentPoint];
+  */
+  private void compareRanking(float[] goalTimes) {
+    float minutes = 0f;
+    float second = 0f;
+    float point = 0f;
+    rankingArray = getRanking();
+    
+    for (int i = 0; i < rankingArray.Count; i++) {
+      string[] ranks = rankingArray[i].Split(":"[0]);
+
       // 分、秒、ミリ秒が設定されている
       if (ranks.Length > 1) {
         second = float.Parse(ranks[0]);
@@ -81,17 +92,53 @@ public class Score : MonoBehaviour {
 
      // 分、秒、ミリ秒が設定されている
       if (rankingArray.Count > 1) {
+        // どちらが大きいか比較
+        if (minutes > goalTimes[0]) {
+          return;
+
+        } else if (minutes == goalTimes[0]) {
+          if (second > goalTimes[1]) {
+            return;
+          } else if (second == goalTimes[1]) {
+            if (point > goalTimes[2]) {
+              return;
+            }
+          }
+        }
         
+        // ランキングに設定
+        string newRank = goalTimes[0].ToString() + ":" + goalTimes[1].ToString() + ":" + goalTimes[2].ToString();
+        rankingArray.Remove(rankingArray[i]);
+        rankingArray.Add(newRank);
+
+        Console.WriteLine("aaa");
+        Debug.Log(newRank);
+
       // 秒、ミリ秒が設定されている
       } else {
-        if (minutes > rankingArray[0]) {
-                    
+        // どちらが大きいか比較
+        if (second > goalTimes[0]) {
+          return;
+        } else if (second == goalTimes[0]) {
+          if (point > goalTimes[1]) {
+            return;
+          }
         }
+        
+        // ランキングに設定
+        string newRank = goalTimes[1].ToString() + ":" + goalTimes[2].ToString();
+        rankingArray.Remove(rankingArray[i]);
+        rankingArray.Add(newRank);
+
+        Console.WriteLine("bbb");
+        Debug.Log(newRank);
       }
     }
   }
   
   void setScoreBoard() {
+    Debug.Log(rankingArray.Count);
+    
     for(int i = 0; i < rankingArray.Count; i++) {
       GameObject time = rankObj[i].transform.FindChild("time").gameObject;
       
@@ -99,7 +146,6 @@ public class Score : MonoBehaviour {
       int number = int.Parse(no[1]);
 
       time.GetComponent<Text>().text = (rankingArray[i]).ToString();
-      // time.GetComponent<GUIText>().text = "aaa";
     }
   }
   
