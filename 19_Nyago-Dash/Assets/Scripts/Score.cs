@@ -11,7 +11,7 @@ public class Score : MonoBehaviour {
   private List<string> rankingArray = new List<string>();
   private GameObject scoreObj;
   private GameObject[] rankObj;
-  
+
   private bool checkRanking = false;
 
 	private Robot robot;
@@ -35,11 +35,11 @@ public class Score : MonoBehaviour {
 
 		GameObject Nyago = GameObject.FindWithTag ("Player");
 		robot = Nyago.GetComponent<Robot>();
-    
-    
+
+
     // default設定
     // foreach(GameObject rank in rankObj) {
-    //   rankingArray.Add("00:00");      
+    //   rankingArray.Add("00:00");
     // }
 
     // rankingArray.Sort();
@@ -49,15 +49,17 @@ public class Score : MonoBehaviour {
     rankingArray = getRanking();
     Debug.Log(rankingArray.Count);
 
+    sortRanking();
+
     setRanking();
-    
+
     setScoreBoard();
   }
 
   void Update() {
-    
+
   }
-  
+
   void FixedUpdate() {
 		if (robot.isDie && !checkRanking) {
       Debug.Log("die");
@@ -75,13 +77,13 @@ public class Score : MonoBehaviour {
     float second = 0f;
     float point = 0f;
     rankingArray = getRanking();
-    
+
     for (int i = 0; i < rankingArray.Count; i++) {
-      
+
       if (checkRanking) {
         return;
       }
-      
+
       string[] ranks = rankingArray[i].Split(":"[0]);
 
       // 分、秒、ミリ秒が設定されている
@@ -110,7 +112,7 @@ public class Score : MonoBehaviour {
             }
           }
         }
-        
+
         // ランキングに設定
         string minutesText = goalTimes[0].ToString();
         if (minutesText.Length == 1) minutesText = "0" + minutesText;
@@ -136,7 +138,7 @@ public class Score : MonoBehaviour {
             return;
           }
         }
-        
+
         // ランキングに設定
         string secondText = goalTimes[0].ToString();
         if (secondText.Length == 1) secondText = "0" + secondText;
@@ -150,35 +152,52 @@ public class Score : MonoBehaviour {
         Debug.Log("bbb");
         Debug.Log(newRank);
       }
-      
+
       setRanking();
       setScoreBoard();
       checkRanking = true;
     }
   }
-  
+
+  private void sortRanking() {
+     Hashtable tmpHash = new Hashtable();
+     List<float> compareTime = new List<float>();
+
+    for (int i = 0; i < rankingArray.Count; i++) {
+      string[] ranks = rankingArray[i].Split(":"[0]);
+      float[] ranksFloat = new float[ranks.Length];
+
+      for (int j = 0; j < ranks.Length; j++) {
+        ranksFloat[j] = float.Parse(ranks[j]);
+      }
+
+      tmpHash[i] = ranks;
+      // compareTime.Add(float.Parse(ranks[0]));
+    }
+  }
+
   void setScoreBoard() {
     Debug.Log(rankingArray.Count);
-    
+
     for(int i = 0; i < rankingArray.Count; i++) {
       GameObject time = rankObj[i].transform.FindChild("time").gameObject;
-      
+
       string[] no = rankObj[i].name.Split("Rank"[3]);
       int number = int.Parse(no[1]);
 
       time.GetComponent<Text>().text = (rankingArray[i]).ToString();
     }
   }
-  
+
   public List<string> getRanking() {
     string _ranking = PlayerPrefs.GetString(RANKING_PREF_KEY);
     Debug.Log("rank");
     Debug.Log(_ranking);
     List<string> rankStrings = new List<string>();
-    
+
     if (string.IsNullOrEmpty(_ranking)) {
       foreach(GameObject rank in rankObj) {
-        rankStrings.Add("00:00");      
+        rankStrings.Add("00:00:00");
       }
 
       return rankStrings;
@@ -186,7 +205,7 @@ public class Score : MonoBehaviour {
       string[] rankSplit = _ranking.Split(',');
       foreach(string r in rankSplit) {
         if (string.IsNullOrEmpty(r)) {
-          rankStrings.Add("00:00");
+          rankStrings.Add("00:00:00");
         } else {
           rankStrings.Add(r);
         }
@@ -195,7 +214,7 @@ public class Score : MonoBehaviour {
       return rankStrings;
     }
   }
-  
+
   public void setRanking() {
     var builder = new StringBuilder();
     for (int i = 0; i < rankingArray.Count; i++) {
@@ -208,7 +227,7 @@ public class Score : MonoBehaviour {
     }
     PlayerPrefs.SetString(RANKING_PREF_KEY, builder.ToString());
   }
-  
+
   public void deleteScore() {
     PlayerPrefs.DeleteKey(RANKING_PREF_KEY);
   }
