@@ -11,6 +11,8 @@ public class Score : MonoBehaviour {
   private List<string> rankingArray = new List<string>();
   private GameObject scoreObj;
   private GameObject[] rankObj;
+  
+  private bool checkRanking = false;
 
 	private Robot robot;
   private TimerController timer;
@@ -42,13 +44,11 @@ public class Score : MonoBehaviour {
 
     // rankingArray.Sort();
     // setRanking();
+    // deleteScore();
     rankingArray.Clear();
     rankingArray = getRanking();
+    Debug.Log(rankingArray.Count);
 
-    foreach(GameObject rank in rankObj) {
-      rankingArray.Add("00:00");      
-    }
-    
     setRanking();
     
     setScoreBoard();
@@ -59,7 +59,7 @@ public class Score : MonoBehaviour {
   }
   
   void FixedUpdate() {
-		if (robot.isDie) {
+		if (robot.isDie && !checkRanking) {
       Debug.Log("die");
       float[] currentTimes = timer.GetCurrentTime();
       compareRanking(currentTimes);
@@ -77,6 +77,11 @@ public class Score : MonoBehaviour {
     rankingArray = getRanking();
     
     for (int i = 0; i < rankingArray.Count; i++) {
+      
+      if (checkRanking) {
+        return;
+      }
+      
       string[] ranks = rankingArray[i].Split(":"[0]);
 
       // 分、秒、ミリ秒が設定されている
@@ -90,8 +95,8 @@ public class Score : MonoBehaviour {
         point = float.Parse(ranks[2]);
       }
 
-     // 分、秒、ミリ秒が設定されている
-      if (rankingArray.Count > 1) {
+      // 分、秒、ミリ秒が設定されている
+      if (goalTimes.Length > 1) {
         // どちらが大きいか比較
         if (minutes > goalTimes[0]) {
           return;
@@ -107,11 +112,18 @@ public class Score : MonoBehaviour {
         }
         
         // ランキングに設定
-        string newRank = goalTimes[0].ToString() + ":" + goalTimes[1].ToString() + ":" + goalTimes[2].ToString();
+        string minutesText = goalTimes[0].ToString();
+        if (minutesText.Length == 1) minutesText = "0" + minutesText;
+        string secondText = goalTimes[1].ToString();
+        if (secondText.Length == 1) secondText = "0" + secondText;
+        string pointText = goalTimes[2].ToString();
+        if (pointText.Length == 1) pointText = "0" + pointText;
+
+        string newRank = minutesText + ":" + secondText + ":" + pointText;
         rankingArray.Remove(rankingArray[i]);
         rankingArray.Add(newRank);
 
-        Console.WriteLine("aaa");
+        Debug.Log("aaa");
         Debug.Log(newRank);
 
       // 秒、ミリ秒が設定されている
@@ -126,13 +138,22 @@ public class Score : MonoBehaviour {
         }
         
         // ランキングに設定
-        string newRank = goalTimes[1].ToString() + ":" + goalTimes[2].ToString();
+        string secondText = goalTimes[0].ToString();
+        if (secondText.Length == 1) secondText = "0" + secondText;
+        string pointText = goalTimes[1].ToString();
+        if (pointText.Length == 1) pointText = "0" + pointText;
+
+        string newRank = secondText + ":" + pointText;
         rankingArray.Remove(rankingArray[i]);
         rankingArray.Add(newRank);
 
-        Console.WriteLine("bbb");
+        Debug.Log("bbb");
         Debug.Log(newRank);
       }
+      
+      setRanking();
+      setScoreBoard();
+      checkRanking = true;
     }
   }
   
@@ -151,6 +172,8 @@ public class Score : MonoBehaviour {
   
   public List<string> getRanking() {
     string _ranking = PlayerPrefs.GetString(RANKING_PREF_KEY);
+    Debug.Log("rank");
+    Debug.Log(_ranking);
     List<string> rankStrings = new List<string>();
     
     if (string.IsNullOrEmpty(_ranking)) {
@@ -175,8 +198,13 @@ public class Score : MonoBehaviour {
   
   public void setRanking() {
     var builder = new StringBuilder();
-    foreach(string rank in rankingArray) {
-      builder.Append(rank + ",");
+    for (int i = 0; i < rankingArray.Count; i++) {
+      if (i == rankingArray.Count-1) {
+        builder.Append(rankingArray[i]);
+      } else {
+        builder.Append(rankingArray[i] + ",");
+      }
+
     }
     PlayerPrefs.SetString(RANKING_PREF_KEY, builder.ToString());
   }
