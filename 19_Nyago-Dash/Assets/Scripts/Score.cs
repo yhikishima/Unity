@@ -45,7 +45,7 @@ public class Score : MonoBehaviour {
     // rankingArray.Sort();
     // setRanking();
     // deleteScore();
-    rankingArray.Clear();
+    // rankingArray.Clear();
     rankingArray = getRanking();
     Debug.Log(rankingArray.Count);
 
@@ -161,18 +161,44 @@ public class Score : MonoBehaviour {
 
   private void sortRanking() {
      Hashtable tmpHash = new Hashtable();
-     List<float> compareTime = new List<float>();
+     List<float> sortList = new List<float>();
 
     for (int i = 0; i < rankingArray.Count; i++) {
       string[] ranks = rankingArray[i].Split(":"[0]);
-      float[] ranksFloat = new float[ranks.Length];
+      float[] ranksFloatList = new float[ranks.Length];
+      float ranksFloat;
+      string ranksString = "";
 
-      for (int j = 0; j < ranks.Length; j++) {
-        ranksFloat[j] = float.Parse(ranks[j]);
+      // for (int j = 0; j < ranks.Length; j++) {
+      //   ranksFloatList[j] = float.Parse(ranks[j]);
+      // }
+
+      foreach(string s in ranks) {
+        Debug.Log("string");
+        Debug.Log(s);
+        ranksString += s;
       }
+      Debug.Log("ranksString");
+      Debug.Log(ranksString);
+      ranksFloat = float.Parse(ranksString);
 
-      tmpHash[i] = ranks;
+      sortList.Add(ranksFloat);
       // compareTime.Add(float.Parse(ranks[0]));
+    }
+
+    sortList.Sort();
+
+    foreach(float s in sortList) {
+      string sortListStr =  s.ToString();
+
+      Debug.Log("length");
+      Debug.Log(sortListStr);
+      Debug.Log(sortListStr.Length);
+
+      string minStr = sortListStr.Substring(0, 2);
+      string secondStr = sortListStr.Substring(2, 2);
+      string pointStr = sortListStr.Substring(4, 2);
+      rankingArray.Add(minStr + ":" + secondStr + ":" + pointStr);
     }
   }
 
