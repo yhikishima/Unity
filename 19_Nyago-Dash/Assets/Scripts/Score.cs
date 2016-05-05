@@ -49,7 +49,7 @@ public class Score : MonoBehaviour {
     rankingArray = getRanking();
     Debug.Log(rankingArray.Count);
 
-    sortRanking();
+    // sortRanking();
 
     setRanking();
 
@@ -187,9 +187,21 @@ public class Score : MonoBehaviour {
     }
 
     sortList.Sort();
+    Debug.Log("===================sortList=================");
+    Debug.Log(sortList[0]);
+    Debug.Log(sortList[1]);
+    Debug.Log(sortList[2]);
 
     foreach(float s in sortList) {
       string sortListStr =  s.ToString();
+
+      // floatによって、数値が6けたじゃなくなっているので、調整
+      for(int i = 0; i < 6; i++) {
+        if (sortListStr.Length == 6) {
+          return;
+        }
+        sortListStr = "0" + sortListStr;
+      }
 
       Debug.Log("length");
       Debug.Log(sortListStr);
