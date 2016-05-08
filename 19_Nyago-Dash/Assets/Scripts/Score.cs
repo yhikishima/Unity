@@ -49,7 +49,7 @@ public class Score : MonoBehaviour {
     rankingArray = getRanking();
     Debug.Log(rankingArray.Count);
 
-    // sortRanking();
+    sortRanking();
 
     setRanking();
 
@@ -125,9 +125,6 @@ public class Score : MonoBehaviour {
         rankingArray.Remove(rankingArray[i]);
         rankingArray.Add(newRank);
 
-        Debug.Log("aaa");
-        Debug.Log(newRank);
-
       // 秒、ミリ秒が設定されている
       } else {
         // どちらが大きいか比較
@@ -148,9 +145,6 @@ public class Score : MonoBehaviour {
         string newRank = secondText + ":" + pointText;
         rankingArray.Remove(rankingArray[i]);
         rankingArray.Add(newRank);
-
-        Debug.Log("bbb");
-        Debug.Log(newRank);
       }
 
       setRanking();
@@ -192,15 +186,18 @@ public class Score : MonoBehaviour {
     Debug.Log(sortList[1]);
     Debug.Log(sortList[2]);
 
+    rankingArray.Clear();
+
     foreach(float s in sortList) {
       string sortListStr =  s.ToString();
 
       // floatによって、数値が6けたじゃなくなっているので、調整
-      for(int i = 0; i < 6; i++) {
+      for(int k = 0; k < 6; k++) {
         if (sortListStr.Length == 6) {
-          return;
+          k = 6;
+        } else {
+          sortListStr = "0" + sortListStr;
         }
-        sortListStr = "0" + sortListStr;
       }
 
       Debug.Log("length");
@@ -218,12 +215,14 @@ public class Score : MonoBehaviour {
     Debug.Log(rankingArray.Count);
 
     for(int i = 0; i < rankingArray.Count; i++) {
-      GameObject time = rankObj[i].transform.FindChild("time").gameObject;
+      var targetObj = rankObj[i];
+      var targetName = rankObj[i].name;
+      GameObject time = targetObj.transform.FindChild("time").gameObject;
 
       string[] no = rankObj[i].name.Split("Rank"[3]);
       int number = int.Parse(no[1]);
 
-      time.GetComponent<Text>().text = (rankingArray[i]).ToString();
+      time.GetComponent<Text>().text = (rankingArray[i-1]).ToString();
     }
   }
 
