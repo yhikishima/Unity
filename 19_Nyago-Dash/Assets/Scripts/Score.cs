@@ -47,8 +47,6 @@ public class Score : MonoBehaviour {
     // deleteScore();
     // rankingArray.Clear();
     rankingArray = getRanking();
-    Debug.Log(rankingArray.Count);
-
     sortRanking();
 
     setRanking();
@@ -163,28 +161,15 @@ public class Score : MonoBehaviour {
       float ranksFloat;
       string ranksString = "";
 
-      // for (int j = 0; j < ranks.Length; j++) {
-      //   ranksFloatList[j] = float.Parse(ranks[j]);
-      // }
-
       foreach(string s in ranks) {
-        Debug.Log("string");
-        Debug.Log(s);
         ranksString += s;
       }
-      Debug.Log("ranksString");
-      Debug.Log(ranksString);
       ranksFloat = float.Parse(ranksString);
 
       sortList.Add(ranksFloat);
-      // compareTime.Add(float.Parse(ranks[0]));
     }
 
     sortList.Sort();
-    Debug.Log("===================sortList=================");
-    Debug.Log(sortList[0]);
-    Debug.Log(sortList[1]);
-    Debug.Log(sortList[2]);
 
     rankingArray.Clear();
 
@@ -200,20 +185,17 @@ public class Score : MonoBehaviour {
         }
       }
 
-      Debug.Log("length");
-      Debug.Log(sortListStr);
-      Debug.Log(sortListStr.Length);
-
       string minStr = sortListStr.Substring(0, 2);
       string secondStr = sortListStr.Substring(2, 2);
       string pointStr = sortListStr.Substring(4, 2);
-      rankingArray.Add(minStr + ":" + secondStr + ":" + pointStr);
+      string addStr = minStr + ":" + secondStr + ":" + pointStr;
+      if (addStr != "00:00:00") {
+        rankingArray.Add(addStr);
+      }
     }
   }
 
   void setScoreBoard() {
-    Debug.Log(rankingArray.Count);
-
     for(int i = 0; i < rankingArray.Count; i++) {
       var targetObj = rankObj[i];
       var targetName = rankObj[i].name;
@@ -222,7 +204,7 @@ public class Score : MonoBehaviour {
       string[] no = rankObj[i].name.Split("Rank"[3]);
       int number = int.Parse(no[1]);
 
-      time.GetComponent<Text>().text = (rankingArray[i-1]).ToString();
+      time.GetComponent<Text>().text = (rankingArray[number-1]).ToString();
     }
   }
 
