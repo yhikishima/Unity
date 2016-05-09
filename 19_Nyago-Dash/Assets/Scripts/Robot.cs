@@ -6,7 +6,7 @@ public class Robot : MonoBehaviour {
 	public bool isDie = false;
 
 	public float speed = 0.1f;
-	
+
 	private bool walkingFlg = false;
 	Animator animator;
 	StartController start;
@@ -17,16 +17,11 @@ public class Robot : MonoBehaviour {
 		GameObject StartObj = GameObject.FindWithTag ("start");
 		start = StartObj.GetComponent<StartController> ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (start.isStart) {
-			if (!walkingFlg) {
-				// 初めの一回だけ、遅らせたい
-				Invoke ("WalkForward", 1);
-			} else {
-				WalkForward();
-			}
+			WalkForward();
 			SetAction ();
 		}
 	}

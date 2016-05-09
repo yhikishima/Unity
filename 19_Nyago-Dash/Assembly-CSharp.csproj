@@ -82,6 +82,7 @@
      <Compile Include="Assets\Resources\The_Robots\Orbit Camera\Scripts\maxCamera.cs" />
      <Compile Include="Assets\Scripts\Camera.cs" />
      <Compile Include="Assets\Scripts\EndController.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
      <Compile Include="Assets\Scripts\GalaxyBoxUpdater.cs" />
      <Compile Include="Assets\Scripts\GroundController.cs" />
      <Compile Include="Assets\Scripts\RandomRotation.cs" />

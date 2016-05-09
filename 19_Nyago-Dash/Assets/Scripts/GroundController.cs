@@ -13,12 +13,12 @@ public class GroundController : MonoBehaviour {
 	void Start () {
 		time = 0f;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
 	}
-		
+
 	private void OnCollisionEnter(Collision collision) {
 		if (!onRobot) {
 			StartCoroutine(UpdateGrounds());

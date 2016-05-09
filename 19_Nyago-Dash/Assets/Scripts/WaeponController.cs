@@ -22,7 +22,6 @@ public class WaeponController : MonoBehaviour {
 		GameObject StartObj = GameObject.FindWithTag ("start");
 		start = StartObj.GetComponent<StartController> ();
 
-
 		InvokeRepeating("FireSpear", waitingTime, waitingTime);
 	}
 
@@ -43,7 +42,7 @@ public class WaeponController : MonoBehaviour {
 			return;
 		}
 
-		GameObject spearObj = GameObject.FindWithTag ("spear");
+		// GameObject spearObj = GameObject.FindWithTag ("spear");
 		if (spearObj) {
 			Invoke("DestorySpear(spearObj)", 2);
 		}
