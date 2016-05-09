@@ -189,14 +189,23 @@ public class Score : MonoBehaviour {
       string secondStr = sortListStr.Substring(2, 2);
       string pointStr = sortListStr.Substring(4, 2);
       string addStr = minStr + ":" + secondStr + ":" + pointStr;
+
       if (addStr != "00:00:00") {
         rankingArray.Add(addStr);
+      }
+    }
+
+    for (var i=0; i < 5; i++) {
+      if (rankingArray.Count == 5){
+        i = 5;
+      } else {
+        rankingArray.Add("00:00:00");
       }
     }
   }
 
   void setScoreBoard() {
-    for(int i = 0; i < rankingArray.Count; i++) {
+    for(int i = 0; i < 5; i++) {
       var targetObj = rankObj[i];
       var targetName = rankObj[i].name;
       GameObject time = targetObj.transform.FindChild("time").gameObject;
@@ -210,7 +219,7 @@ public class Score : MonoBehaviour {
 
   public List<string> getRanking() {
     string _ranking = PlayerPrefs.GetString(RANKING_PREF_KEY);
-    Debug.Log("rank");
+    Debug.Log("==============rank=================");
     Debug.Log(_ranking);
     List<string> rankStrings = new List<string>();
 
@@ -227,6 +236,16 @@ public class Score : MonoBehaviour {
           rankStrings.Add("00:00:00");
         } else {
           rankStrings.Add(r);
+        }
+      }
+
+      if (rankStrings.Count < 5) {
+        for(var i=0; i < 5; i++) {
+          rankStrings.Add("00:00:00");
+
+          if (rankStrings.Count == 5) {
+            i = 5;
+          }
         }
       }
 
