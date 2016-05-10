@@ -2,9 +2,15 @@
 using System.Collections;
 
 public class EnemyController : MonoBehaviour {
+	StartController start;
+	private GameObject enemyPrefab;
 
 	// Use this for initialization
 	void Start () {
+		enemyPrefab = (GameObject)Resources.Load ("Prefabs/Enemies/Robot_Enemy01");
+
+		GameObject StartObj = GameObject.FindWithTag ("start");
+		start = StartObj.GetComponent<StartController> ();
 		StartCoroutine( EnemyCoroutine() );
 	}
 
@@ -14,11 +20,16 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	private IEnumerator EnemyCoroutine() {
-		GameObject enemyPrefab = (GameObject)Resources.Load ("Prefabs/Enemies/Robot_Enemy01");
-		// Instantiate(enemyPrefab);
 		while (true) {
-			Instantiate(enemyPrefab, transform.position, enemyPrefab.transform.rotation);
-			yield return new WaitForSeconds(3.0f);
+			if (!start.openStart) {
+				yield return null;
+			} else {
+				var grounds = GameObject.FindGameObjectsWithTag ("ground");
+				// var groundPosition = .transform.position;
+
+				Instantiate(enemyPrefab, grounds[0].transform.position, enemyPrefab.transform.rotation);
+				yield return new WaitForSeconds(5.0f);
+			}
 		}
 	}
 }
