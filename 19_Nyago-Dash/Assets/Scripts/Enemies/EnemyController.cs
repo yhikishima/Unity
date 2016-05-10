@@ -3,12 +3,10 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour {
 	StartController start;
-	private GameObject enemyPrefab;
+	GameObject enemyPrefab;
 
 	// Use this for initialization
 	void Start () {
-		enemyPrefab = (GameObject)Resources.Load ("Prefabs/Enemies/Robot_Enemy01");
-
 		GameObject StartObj = GameObject.FindWithTag ("start");
 		start = StartObj.GetComponent<StartController> ();
 		StartCoroutine( EnemyCoroutine() );
@@ -16,7 +14,6 @@ public class EnemyController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
 	}
 
 	private IEnumerator EnemyCoroutine() {
@@ -24,11 +21,15 @@ public class EnemyController : MonoBehaviour {
 			if (!start.openStart) {
 				yield return null;
 			} else {
-				var grounds = GameObject.FindGameObjectsWithTag ("ground");
-				// var groundPosition = .transform.position;
-
-				Instantiate(enemyPrefab, grounds[0].transform.position, enemyPrefab.transform.rotation);
 				yield return new WaitForSeconds(5.0f);
+				var grounds = GameObject.FindGameObjectsWithTag ("ground");
+
+				var enemyRandomNo = Random.Range(0, 4);
+				enemyPrefab = (GameObject)Resources.Load ("Prefabs/Enemies/Robot_Enemy0" + (enemyRandomNo+1));
+
+				var position = new Vector3(grounds[0].transform.position.x, enemyPrefab.transform.position.y, enemyPrefab.transform.position.z);
+
+				Instantiate(enemyPrefab, position, enemyPrefab.transform.rotation);
 			}
 		}
 	}
