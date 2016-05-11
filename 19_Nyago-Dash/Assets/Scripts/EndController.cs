@@ -25,11 +25,11 @@ public class EndController : MonoBehaviour {
 		//		render = GetComponent<Renderer>();
 //		End.SetActive(false);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		robot = Nyago.GetComponent<Robot>();
-		if (robot.isDie) {
+		if (robot.isDie || robot.isGoal) {
 			Invoke ("CloseBlock", 1);
 		}
 

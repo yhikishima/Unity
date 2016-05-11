@@ -86,6 +86,7 @@
      <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyWalk.cs" />
      <Compile Include="Assets\Scripts\GalaxyBoxUpdater.cs" />
+     <Compile Include="Assets\Scripts\Goal\GoalController.cs" />
      <Compile Include="Assets\Scripts\GroundController.cs" />
      <Compile Include="Assets\Scripts\RandomRotation.cs" />
      <Compile Include="Assets\Scripts\Robot.cs" />

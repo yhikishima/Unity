@@ -6,7 +6,7 @@ public class TimerController : MonoBehaviour {
 	private Text secondText;
 	private Text pointText;
 	private Text minutesText;
-	
+
 	private float minutes;
 	private float second;
 	private float point;
@@ -42,11 +42,11 @@ public class TimerController : MonoBehaviour {
 			SetTime ();
 		}
 	}
-	
+
 	public void SetStartTime() {
 		startTime = Time.time;
 	}
-	
+
 	public float[] GetCurrentTime() {
 		float[] timeArray = new float[3]{minutes, second, point};
 
@@ -91,7 +91,7 @@ public class TimerController : MonoBehaviour {
 			pointText.text = (point).ToString();
 		}
 
-		if (robot.isDie) {
+		if (robot.isDie || robot.isGoal) {
 			timeStop = true;
 		}
 	}

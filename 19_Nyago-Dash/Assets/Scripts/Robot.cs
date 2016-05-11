@@ -64,4 +64,9 @@ public class Robot : MonoBehaviour {
 		animator.SetBool("Die", true);
 		isDie = true;
 	}
+
+	public void ToGoal() {
+		// animator.SetBool("Die", true);
+		isGoal = true;
+	}
 }

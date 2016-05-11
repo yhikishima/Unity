@@ -59,7 +59,7 @@ public class Score : MonoBehaviour {
   }
 
   void FixedUpdate() {
-		if (robot.isDie && !checkRanking) {
+		if (robot.isDie || robot.isGoal && !checkRanking) {
       Debug.Log("die");
       float[] currentTimes = timer.GetCurrentTime();
       compareRanking(currentTimes);
