@@ -49,6 +49,23 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\api\APIManager.cs" />
+     <Compile Include="Assets\Scripts\main.cs" />
+     <Compile Include="Assets\Scripts\thirdparty\UniWebView\Demo\1.Basic\TopSceneManager.cs" />
+     <Compile Include="Assets\Scripts\thirdparty\UniWebView\Demo\2.UseWithCode\UseWithCodeSceneManager.cs" />
+     <Compile Include="Assets\Scripts\thirdparty\UniWebView\Demo\3.LocalHTML\LocalHTMLSceneManager.cs" />
+     <Compile Include="Assets\Scripts\thirdparty\UniWebView\Demo\4.SizeAndTransition\SizeAndTransitionSceneManager.cs" />
+     <Compile Include="Assets\Scripts\thirdparty\UniWebView\Demo\5.CallbackFromWeb\CallbackFromWebSceneManager.cs" />
+     <Compile Include="Assets\Scripts\thirdparty\UniWebView\Demo\6.RunJavaScriptInWeb\RunJavaScriptInWebSceneManager.cs" />
+     <Compile Include="Assets\Scripts\thirdparty\UniWebView\Demo\Common\Navigator.cs" />
+     <Compile Include="Assets\Scripts\thirdparty\UniWebView\Script\Helper\UniWebViewHelper.cs" />
+     <Compile Include="Assets\Scripts\thirdparty\UniWebView\Script\UniWebView.cs" />
+     <Compile Include="Assets\Scripts\thirdparty\UniWebView\Script\UniWebViewEdgeInsets.cs" />
+     <Compile Include="Assets\Scripts\thirdparty\UniWebView\Script\UniWebViewMessage.cs" />
+     <Compile Include="Assets\Scripts\thirdparty\UniWebView\Script\UniWebViewOrientation.cs" />
+     <Compile Include="Assets\Scripts\thirdparty\UniWebView\Script\UniWebViewTransitionEdge.cs" />
+     <None Include="Assets\Scripts\thirdparty\UniWebView\ChangeLog.txt" />
+     <None Include="Assets\Scripts\thirdparty\UniWebView\Readme.txt" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
