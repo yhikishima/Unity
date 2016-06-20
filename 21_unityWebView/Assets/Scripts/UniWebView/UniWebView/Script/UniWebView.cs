@@ -1,4 +1,4 @@
-#if UNITY_IOS || UNITY_ANDROID || UNITY_WP8
+// #if UNITY_IOS || UNITY_ANDROID || UNITY_WP8
 //
 //    UniWebView.cs
 //  Created by Wang Wei(@onevcat) on 2013-10-20.
@@ -441,7 +441,7 @@ public class UniWebView : MonoBehaviour {
     public void AddJavaScript(string javaScript) {
         UniWebViewPlugin.AddJavaScript(gameObject.name, javaScript);
     }
-    
+
     /// <summary>
     /// Clean the cache of this UniWebView.
     /// </summary>
@@ -573,7 +573,7 @@ public class UniWebView : MonoBehaviour {
     /// <summary>
     /// Determines whether the webview can go back.
     /// </summary>
-    /// <returns><c>true</c> if this instance can go back, which means there is at least one page in the navigation stack below; 
+    /// <returns><c>true</c> if this instance can go back, which means there is at least one page in the navigation stack below;
     /// otherwise, <c>false</c>.</returns>
     public bool CanGoBack() {
         return UniWebViewPlugin.CanGoBack(gameObject.name);
@@ -582,7 +582,7 @@ public class UniWebView : MonoBehaviour {
     /// <summary>
     /// Determines whether this webview can go forward.
     /// </summary>
-    /// <returns><c>true</c> if this instance can go forward, which means the user did at least once back; 
+    /// <returns><c>true</c> if this instance can go forward, which means the user did at least once back;
     /// otherwise, <c>false</c>.</returns>
     public bool CanGoForward() {
         return UniWebViewPlugin.CanGoForward(gameObject.name);
@@ -654,37 +654,37 @@ public class UniWebView : MonoBehaviour {
         UniWebViewPlugin.SetHeaderField(gameObject.name, key, value);
         #endif
     }
-    
+
     /// <summary>
     /// Set visibility of vertical bar for the web view.
     /// </summary>
     /// <description>
-    /// This method will not work for editor and Windows Phone 8. 
+    /// This method will not work for editor and Windows Phone 8.
     /// </description>
     /// <param name="show">Whether the vertical scroll bar should be visible or not when the web view is being scrolled.</param>
     public void SetVerticalScrollBarShow(bool show) {
         #if UNITY_WP8
-        Debug.LogWarning("Not implemented for Windows Phone 8.");        
+        Debug.LogWarning("Not implemented for Windows Phone 8.");
         #else
         UniWebViewPlugin.SetVerticalScrollBarShow(gameObject.name, show);
         #endif
     }
-    
+
     /// <summary>
     /// Set visibility of horizontal bar for the web view.
     /// </summary>
     /// <description>
-    /// This method will not work for editor and Windows Phone 8. 
+    /// This method will not work for editor and Windows Phone 8.
     /// </description>
     /// <param name="show">Whether the horizontal scroll bar should be visible or not when the web view is being scrolled.</param>
     public void SetHorizontalScrollBarShow(bool show) {
         #if UNITY_WP8
-        Debug.LogWarning("Not implemented for Windows Phone 8.");        
+        Debug.LogWarning("Not implemented for Windows Phone 8.");
         #else
         UniWebViewPlugin.SetHorizontalScrollBarShow(gameObject.name, show);
         #endif
     }
-    
+
     private bool OrientationChanged() {
         int newHeight = UniWebViewHelper.screenHeight;
         if (_lastScreenHeight != newHeight) {
@@ -789,7 +789,7 @@ public class UniWebView : MonoBehaviour {
             _hideTransitionAction();
             _hideTransitionAction = null;
         }
-    } 
+    }
 
     private IEnumerator LoadFromJarPackage(string jarFilePath) {
         WWW stream = new WWW(jarFilePath);
@@ -894,7 +894,7 @@ public class UniWebView : MonoBehaviour {
             _webViewRect = new Rect(x, y, width, height);
             _texture = new Texture2D(width * 2, height * 2, TextureFormat.ARGB32, false);
             _texture = new Texture2D(width * _screenScale, height * _screenScale, TextureFormat.ARGB32, false);
-        }    
+        }
     }
 
     private void Clean() {
@@ -932,7 +932,7 @@ public class UniWebView : MonoBehaviour {
 #if UNITY_5_0 || UNITY_5_1 || UNITY_5_2_0
                 GL.IssuePluginEvent(_webViewId);
 #else
-                
+
                 GL.IssuePluginEvent(UniWebViewPlugin.GetRenderEventFunc(), _webViewId);
 #endif
                 Matrix4x4 m = GUI.matrix;
@@ -946,4 +946,4 @@ public class UniWebView : MonoBehaviour {
     #endif
     #endregion
 }
-#endif //UNITY_IOS || UNITY_ANDROID
+// #endif //UNITY_IOS || UNITY_ANDROID
