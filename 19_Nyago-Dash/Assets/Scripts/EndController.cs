@@ -8,7 +8,7 @@ public class EndController : MonoBehaviour {
 	private bool openStart = false;
 	private StartController start;
 
-	const float blockTop = 172;
+	const float blockTop = 182;
 
 	void Awake () {
 		DontDestroyOnLoad(this); // シーン読み込みの際に破棄されなくなる
@@ -49,7 +49,7 @@ public class EndController : MonoBehaviour {
 		} else if (pos.y > 200 + blockTop) {
 			pos.y -= 10f;
 		} else if (pos.y > blockTop) {
-			pos.y -= 20f;
+			pos.y -= 25f;
 		}
 
 		transform.position = pos;

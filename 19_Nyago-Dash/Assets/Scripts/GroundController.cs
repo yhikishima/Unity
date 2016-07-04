@@ -20,9 +20,9 @@ public class GroundController : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter(Collision collision) {
-		if (!onRobot) {
-			StartCoroutine(UpdateGrounds());
-		}
+		// if (!onRobot) {
+		// 	StartCoroutine(UpdateGrounds());
+		// }
 	}
 
 	private IEnumerator UpdateGrounds() {
