@@ -170,6 +170,7 @@ public class Score : MonoBehaviour {
     }
 
     sortList.Sort();
+    // rankingArray = sortList;
 
     rankingArray.Clear();
 

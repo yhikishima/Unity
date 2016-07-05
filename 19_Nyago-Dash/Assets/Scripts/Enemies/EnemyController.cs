@@ -7,9 +7,9 @@ public class EnemyController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GameObject StartObj = GameObject.FindWithTag ("start");
-		start = StartObj.GetComponent<StartController> ();
-		StartCoroutine( EnemyCoroutine() );
+		// GameObject StartObj = GameObject.FindWithTag ("start");
+		// start = StartObj.GetComponent<StartController> ();
+		// StartCoroutine( EnemyCoroutine() );
 	}
 
 	// Update is called once per frame
