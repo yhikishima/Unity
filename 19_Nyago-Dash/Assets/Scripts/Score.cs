@@ -71,10 +71,11 @@ public class Score : MonoBehaviour {
   goalTimes = [currentMin, currentSecond, currentPoint];
   */
   private void compareRanking(float[] goalTimes) {
-    float minutes = 0f;
-    float second = 0f;
-    float point = 0f;
+    float minutes = 0;
+    float second = 0;
+    float point = 0;
     rankingArray = getRanking();
+    Debug.Log(rankingArray);
 
     for (int i = 0; i < rankingArray.Count; i++) {
 
@@ -84,16 +85,9 @@ public class Score : MonoBehaviour {
 
       string[] ranks = rankingArray[i].Split(":"[0]);
 
-      // 分、秒、ミリ秒が設定されている
-      if (ranks.Length > 1) {
-        second = float.Parse(ranks[0]);
-        point = float.Parse(ranks[1]);
-      // 秒、ミリ秒が設定されている
-      } else {
-        minutes = float.Parse(ranks[0]);
-        second = float.Parse(ranks[1]);
-        point = float.Parse(ranks[2]);
-      }
+      minutes = float.Parse(ranks[0]);
+      second = float.Parse(ranks[1]);
+      point = float.Parse(ranks[2]);
 
       // 分、秒、ミリ秒が設定されている
       if (goalTimes.Length > 1) {
@@ -176,6 +170,7 @@ public class Score : MonoBehaviour {
 
     foreach(float s in sortList) {
       string sortListStr =  s.ToString();
+      Debug.Log(sortListStr);
 
       // floatによって、数値が6けたじゃなくなっているので、調整
       for(int k = 0; k < 6; k++) {
