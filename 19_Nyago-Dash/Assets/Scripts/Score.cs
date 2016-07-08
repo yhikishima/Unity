@@ -59,8 +59,11 @@ public class Score : MonoBehaviour {
   }
 
   void FixedUpdate() {
-		if (robot.isDie || robot.isGoal && !checkRanking) {
-      Debug.Log("die");
+		// if (robot.isDie || robot.isGoal && !checkRanking) {
+    //   Debug.Log("die");
+    // }
+
+    if (robot.isGoal && !checkRanking) {
       float[] currentTimes = timer.GetCurrentTime();
       compareRanking(currentTimes);
     }
@@ -79,10 +82,6 @@ public class Score : MonoBehaviour {
 
     for (int i = 0; i < rankingArray.Count; i++) {
 
-      if (checkRanking) {
-        return;
-      }
-
       string[] ranks = rankingArray[i].Split(":"[0]);
 
       minutes = float.Parse(ranks[0]);
@@ -93,14 +92,14 @@ public class Score : MonoBehaviour {
       if (goalTimes.Length > 1) {
         // どちらが大きいか比較
         if (minutes > goalTimes[0]) {
-          return;
+          continue;
 
         } else if (minutes == goalTimes[0]) {
           if (second > goalTimes[1]) {
-            return;
+            continue;
           } else if (second == goalTimes[1]) {
             if (point > goalTimes[2]) {
-              return;
+              continue;
             }
           }
         }
@@ -121,10 +120,10 @@ public class Score : MonoBehaviour {
       } else {
         // どちらが大きいか比較
         if (second > goalTimes[0]) {
-          return;
+          continue;
         } else if (second == goalTimes[0]) {
           if (point > goalTimes[1]) {
-            return;
+            continue;
           }
         }
 
