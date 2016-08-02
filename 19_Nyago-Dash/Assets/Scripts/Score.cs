@@ -64,6 +64,7 @@ public class Score : MonoBehaviour {
     // }
 
     if (robot.isGoal && !checkRanking) {
+      Debug.Log("goal");
       float[] currentTimes = timer.GetCurrentTime();
       compareRanking(currentTimes);
     }

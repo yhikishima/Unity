@@ -18,7 +18,7 @@ public class GoalController : MonoBehaviour {
 
 	private void OnCollisionEnter(Collision col) {
 		if (col.transform.CompareTag ("Player")) {
-			robot.ToEnd ();
+			robot.ToGoal ();
 		}
 	}
 }
