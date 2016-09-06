@@ -48,6 +48,8 @@ public class TimerController : MonoBehaviour {
 	}
 
 	public float[] GetCurrentTime() {
+		Debug.Log(Time.time);
+		Debug.Log("今の時間");
 		float[] timeArray = new float[3]{minutes, second, point};
 
 		return timeArray;
